@@ -2,6 +2,8 @@ import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import AdminLayout from './layouts/AdminLayout';
 import Loader from './components/Loader';
+import ProtectedRoute from './components/ProtectedRoute';
+import { Toaster } from 'react-hot-toast';
 import './App.css';
 
 // Lazy loading pages for better performance and to show loader
@@ -18,7 +20,6 @@ const EditMember = lazy(() => import('./pages/EditMember'));
 const AvatarList = lazy(() => import('./pages/AvatarList'));
 const AvatarRegistration = lazy(() => import('./pages/AvatarRegistration'));
 const CoinManagement = lazy(() => import('./pages/CoinManagement'));
-const AirDropManagement = lazy(() => import('./pages/AirDropManagement'));
 const ServiceCenter = lazy(() => import('./pages/ServiceCenter'));
 const KYCDetails = lazy(() => import('./pages/KYCDetails'));
 const LoginLogs = lazy(() => import('./pages/LoginLogs'));
@@ -34,11 +35,16 @@ const MainWallet = lazy(() => import('./pages/MainWallet'));
 function App() {
   return (
     <BrowserRouter>
+      <Toaster position="top-right" reverseOrder={false} />
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/login" element={<Login />} />
           
-          <Route path="/" element={<AdminLayout />}>
+          <Route path="/" element={
+            <ProtectedRoute>
+              <AdminLayout />
+            </ProtectedRoute>
+          }>
             <Route index element={<Navigate to="/admin-management" replace />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="users" element={<Users />} />
@@ -59,7 +65,6 @@ function App() {
             <Route path="coin-settings" element={<CoinSetting />} />
             <Route path="main-wallet" element={<MainWallet />} />
             
-            <Route path="airdrop-management" element={<AirDropManagement />} />
             <Route path="airdrop-create" element={<AirdropCreate />} />
             <Route path="airdrop-history" element={<AirdropHistory />} />
             

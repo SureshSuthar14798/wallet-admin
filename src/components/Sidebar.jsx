@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import toast from 'react-hot-toast';
 const Sidebar = () => {
   const location = useLocation();
   const [openSubmenu, setOpenSubmenu] = useState('member'); // Default open or based on location
@@ -175,7 +176,16 @@ const Sidebar = () => {
       </div>
 
       <div className="p-4 border-t border-border-custom bg-panel-solid/30">
-        <button className="w-full flex items-center justify-center gap-3 py-3 bg-panel border border-border-custom text-[10px] font-black uppercase tracking-[2px] text-danger hover:bg-danger hover:text-white rounded-xl transition-all shadow-sm">
+        <button 
+          onClick={() => {
+            localStorage.removeItem('isLoggedIn');
+            toast.success('Logged out successfully');
+            setTimeout(() => {
+                window.location.href = '/login';
+            }, 500);
+          }}
+          className="w-full flex items-center justify-center gap-3 py-3 bg-panel border border-border-custom text-[10px] font-black uppercase tracking-[2px] text-danger hover:bg-danger hover:text-white rounded-xl transition-all shadow-sm"
+        >
           <LogOut size={16} />
           Sign Out
         </button>

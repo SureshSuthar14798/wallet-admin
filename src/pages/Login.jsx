@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Wallet, Eye, EyeOff } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -8,10 +9,21 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    if (isLoggedIn) {
+      navigate('/admin-management');
+    }
+  }, [navigate]);
+
   const handleLogin = (e) => {
     e.preventDefault();
-    if (email && password) {
+    if (email === 'admin@gmail.com' && password === 'admin123') {
+      localStorage.setItem('isLoggedIn', 'true');
+      toast.success('Successfully logged in!');
       navigate('/admin-management');
+    } else {
+      toast.error('Invalid demo credentials. Please use admin@gmail.com / admin123');
     }
   };
 
@@ -22,7 +34,7 @@ const Login = () => {
           <div className="w-12 h-12 bg-primary rounded-[14px] flex items-center justify-center mb-4 shadow-lg shadow-primary/20">
             <Wallet className="text-white" size={24} />
           </div>
-          <h1 className="text-2xl font-bold text-text-main mb-1">Admin Console</h1>
+          <h1 className="text-2xl font-bold text-text-main mb-1">Admin Wallet</h1>
           <p className="text-sm text-text-muted font-medium">Crypto Admin Wallet Management</p>
         </div>
         
@@ -31,7 +43,7 @@ const Login = () => {
             <label className="text-xs font-bold text-text-muted ml-1 uppercase">Email</label>
             <input 
               type="email" 
-              placeholder="admin@s-crypto.com" 
+              placeholder="admin@gmail.com" 
               className="w-full bg-inputBg border border-border-custom text-text-main rounded-2xl px-5 py-3.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-text-muted/40"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -43,7 +55,7 @@ const Login = () => {
             <div className="relative group">
               <input 
                 type={showPassword ? "text" : "password"} 
-                placeholder="••••••••" 
+                placeholder="admin123" 
                 className="w-full bg-inputBg border border-border-custom text-text-main rounded-2xl px-5 py-3.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-text-muted/40 pr-12"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

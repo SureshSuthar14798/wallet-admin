@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark Mode (Default) - Deep, Professional Navy/Black */
+    --bg-main: #0B0E14;
+    --bg-panel: #161B22;
+    --bg-panel-solid: #1C2128;
+    --bg-panel-hover: #22272E;
+    --bg-glass: rgba(22, 27, 34, 0.7);
+    --bg-input: #0B0E14;
+    
+    --border-color: rgba(255, 255, 255, 0.05);
+    --border-focus: rgba(139, 92, 246, 0.5);
+    
+    --color-primary: #8b5cf6; 
+    --color-primary-hover: #7c3aed;
+    --color-secondary: #06b6d4; 
+    --color-success: #10b981;
+    --color-danger: #ef4444;
+    --color-warning: #f59e0b;
+    
+    --text-primary: #F0F6FC;
+    --text-secondary: #8B949E;
+    --text-muted: #64748b;
+  }
+
+  :root[data-theme='light'] {
+    /* Light Mode - Minimalist Korean Fintech Style (Toss/Upbit) */
+    --bg-main: #F2F4F6;
+    --bg-panel: #FFFFFF;
+    --bg-panel-solid: #FFFFFF;
+    --bg-panel-hover: #F8F9FA;
+    --bg-glass: rgba(255, 255, 255, 0.8);
+    --bg-input: #F8F9FA;
+    
+    --border-color: rgba(0, 0, 0, 0.06);
+    --border-focus: rgba(139, 92, 246, 0.5);
+    
+    --text-primary: #191F28;
+    --text-secondary: #4E5968;
+    --text-muted: #8B95A1;
+  }
+
+  body {
+    @apply bg-main text-text-main min-h-screen overflow-x-hidden antialiased relative transition-colors duration-300;
+  }
+}
+
+/* Background Animated Gradient Mesh */
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.03) 0%, transparent 30%);
+  z-index: -1;
+  animation: bgPulse 15s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes bgPulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-enter {
+  animation: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-border-custom rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}

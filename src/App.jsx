@@ -16,6 +16,7 @@ const AdminEdit = lazy(() => import('./pages/AdminEdit'));
 const MemberList = lazy(() => import('./pages/MemberList'));
 const EditMember = lazy(() => import('./pages/EditMember'));
 const AvatarList = lazy(() => import('./pages/AvatarList'));
+const AvatarRegistration = lazy(() => import('./pages/AvatarRegistration'));
 const CoinManagement = lazy(() => import('./pages/CoinManagement'));
 const AirDropManagement = lazy(() => import('./pages/AirDropManagement'));
 const ServiceCenter = lazy(() => import('./pages/ServiceCenter'));
@@ -50,6 +51,7 @@ function App() {
             <Route path="members" element={<MemberList />} />
             <Route path="edit-member/:id" element={<EditMember />} />
             <Route path="avatars" element={<AvatarList />} />
+            <Route path="avatar-registration" element={<AvatarRegistration />} />
             
             {/* Detailed Routes */}
             <Route path="coin-management" element={<CoinManagement />} />

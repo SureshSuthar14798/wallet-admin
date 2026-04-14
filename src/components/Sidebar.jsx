@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
 import { 
-  Users, 
-  Settings, 
-  Wallet, 
-  Activity, 
   UserCog, 
+  Users, 
   List, 
-  History,
-  Megaphone,
-  HelpCircle,
-  Plus,
   Image as ImageIcon, 
   Coins, 
+  Settings, 
+  Wallet, 
   Gift, 
+  Plus, 
+  History, 
   Headset, 
+  Megaphone, 
+  HelpCircle, 
   FileText, 
+  Activity, 
   User, 
+  ChevronDown, 
+  ChevronRight, 
   LogOut,
-  ChevronDown,
-  ChevronRight
+  TrendingUp 
 } from 'lucide-react';
-
+import React, { useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 const Sidebar = () => {
   const location = useLocation();
   const [openSubmenu, setOpenSubmenu] = useState('member'); // Default open or based on location
@@ -98,10 +98,6 @@ const Sidebar = () => {
       </div>
 
       <div className="flex-1 py-6 px-3 space-y-1 overflow-y-auto scrollbar-hide">
-        <div className="px-4 mb-4">
-          <span className="text-[10px] font-black text-text-muted uppercase tracking-[2px]">Management</span>
-        </div>
-        
         {/* Dashboard Link always visible */}
         {/* <NavLink 
           to="/dashboard" 
@@ -136,7 +132,7 @@ const Sidebar = () => {
                 </button>
                 
                 {isOpen && (
-                  <div className="ml-4 space-y-1 border-l border-border-custom pl-2 transition-all">
+                  <div className="ml-[25px] space-y-1 border-l border-border-custom transition-all">
                     {item.submenu.map((sub) => {
                       const isActive = location.pathname === sub.path;
                       return (

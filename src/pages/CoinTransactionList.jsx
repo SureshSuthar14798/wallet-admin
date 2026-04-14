@@ -34,19 +34,19 @@ const CoinTransactionList = () => {
 
           <div className="lg:col-span-8 flex flex-wrap items-center gap-2">
             <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[110px]">
-                <option>=Coin Type=</option>
+                <option>Coin Type</option>
                 <option>BTC</option>
                 <option>ETH</option>
                 <option>USDT</option>
             </select>
             <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[150px]">
-                <option>=Transaction Status=</option>
+                <option>Transaction Status</option>
                 <option>Success</option>
                 <option>Pending</option>
                 <option>Failed</option>
             </select>
             <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[140px]">
-                <option>=Search Options=</option>
+                <option>Search Option</option>
                 <option>TXID</option>
                 <option>Sender ID</option>
                 <option>Address</option>

@@ -51,19 +51,19 @@ const MemberList = () => {
           </div>
           
           <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[130px] shrink-0">
-            <option>=Member status=</option>
+            <option>Member status</option>
             <option>Active</option>
             <option>Inactive</option>
           </select>
 
           <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[220px] shrink-0">
-            <option>=Withdrawal And Exchange Status=</option>
+            <option>Withdrawal And Exchange Status</option>
             <option>Possible</option>
             <option>Impossible</option>
           </select>
 
           <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[130px] shrink-0">
-            <option>=Search Options=</option>
+            <option>Search Option</option>
             <option>ID (Email)</option>
             <option>Mobile</option>
           </select>

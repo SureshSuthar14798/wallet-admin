@@ -96,7 +96,7 @@ const Profile = () => {
         </form>
       </div>
 
-      <div className="bg-primary/5 border border-primary/10 rounded-[20px] p-6 flex gap-4 items-start">
+      <div className="bg-primary/5 border border-primary rounded-[20px] p-6 flex gap-4 items-start">
         <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary shrink-0">
             <Shield size={20} />
         </div>

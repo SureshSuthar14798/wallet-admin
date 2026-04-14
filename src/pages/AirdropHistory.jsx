@@ -33,7 +33,7 @@ const AirdropHistory = () => {
 
           <div className="flex flex-1 items-center justify-end gap-2">
             <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[150px]">
-                <option>=Search Options=</option>
+                <option>Search Option</option>
                 <option>Email</option>
                 <option>Name</option>
                 <option>Reason</option>

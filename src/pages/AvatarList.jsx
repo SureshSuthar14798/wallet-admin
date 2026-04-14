@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Plus, 
   Search, 
@@ -15,21 +16,21 @@ const AvatarList = () => {
     <div className="animate-enter space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold text-text-main tracking-tight">Avatar List</h2>
-        <button className="px-6 py-2.5 bg-primary text-white rounded-xl text-xs font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all flex items-center gap-2">
+        <Link to="/avatar-registration" className="px-6 py-2.5 bg-primary text-white rounded-xl text-xs font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all flex items-center gap-2">
             Registration
-        </button>
+        </Link>
       </div>
 
       {/* Filter Section */}
       <div className="bg-panel border border-border-custom rounded-2xl p-6">
         <div className="flex flex-wrap items-center justify-end gap-3">
             <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-2 text-xs focus:outline-none min-w-[120px]">
-                <option>=Status=</option>
+                <option>Status</option>
                 <option>Active</option>
                 <option>Inactive</option>
             </select>
             <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-2 text-xs focus:outline-none min-w-[140px]">
-                <option>=Search Option=</option>
+                <option>Search Option</option>
                 <option>Avatar Name</option>
                 <option>PK</option>
             </select>
@@ -40,8 +41,8 @@ const AvatarList = () => {
                     className="w-full bg-inputBg border border-border-custom text-text-main rounded-lg px-4 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50"
                 />
             </div>
-            <button className="px-5 py-2 bg-primary/90 text-white rounded-lg text-xs font-bold hover:bg-primary transition-all">
-                Search
+            <button className="px-6 py-1.5 bg-primary text-white rounded-lg text-xs font-bold shadow-md shadow-primary/20 hover:opacity-90 transition-all flex items-center gap-2">
+              <Search size={14} /> Search
             </button>
             <button className="px-5 py-2 bg-panel border border-border-custom text-text-secondary rounded-lg text-xs font-bold hover:bg-panel-hover transition-all flex items-center gap-2">
                 <RotateCcw size={14} /> Reset

@@ -32,13 +32,13 @@ const KYCDetails = () => {
 
           <div className="flex flex-1 items-center justify-end gap-2">
             <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[120px]">
-                <option>=Status=</option>
+                <option>Status</option>
                 <option>Approved</option>
                 <option>Pending</option>
                 <option>Rejected</option>
             </select>
             <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[140px]">
-                <option>=Search Options=</option>
+                <option>Search Option</option>
                 <option>Name</option>
                 <option>PK</option>
             </select>

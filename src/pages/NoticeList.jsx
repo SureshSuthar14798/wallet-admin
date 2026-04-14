@@ -37,12 +37,12 @@ const NoticeList = () => {
 
             <div className="flex flex-1 items-center justify-end gap-2">
               <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[100px]">
-                <option>- Used -</option>
+                <option>Used</option>
                 <option>Use</option>
                 <option>Unused</option>
               </select>
               <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[140px]">
-                <option>- Search Options -</option>
+                <option>Search Option</option>
                 <option>Notice Title</option>
                 <option>Content</option>
                 <option>PK</option>

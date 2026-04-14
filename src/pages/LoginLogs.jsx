@@ -40,17 +40,17 @@ const LoginLogs = () => {
 
           <div className="flex flex-1 items-center gap-2">
             <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[120px]">
-                <option>- Login Status -</option>
+                <option>Login Status</option>
                 <option>Login</option>
                 <option>Logout</option>
             </select>
             <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[100px]">
-                <option>- User -</option>
+                <option>User</option>
                 <option>Admin</option>
                 <option>User</option>
             </select>
             <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[140px]">
-                <option>- Search Options -</option>
+                <option>Search Options</option>
                 <option>ID</option>
                 <option>IP Address</option>
             </select>

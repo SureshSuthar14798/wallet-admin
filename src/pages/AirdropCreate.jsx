@@ -1,8 +1,5 @@
-import React from 'react';
 import { 
-  Send, 
   Search, 
-  RotateCcw, 
   Download, 
   Coins, 
   Users,
@@ -34,7 +31,7 @@ const AirdropCreate = () => {
             </div>
             <div className="flex items-center gap-2">
                 <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[150px]">
-                    <option>=Search Options=</option>
+                    <option>Search Option</option>
                     <option>Email</option>
                     <option>Name</option>
                 </select>
@@ -92,10 +89,9 @@ const AirdropCreate = () => {
 
         {/* Right Side: AirDrop Form */}
         <div className="lg:col-span-4 space-y-4">
-            <div className="bg-panel border border-border-custom rounded-2xl p-6 space-y-6 shadow-xl relative overflow-hidden">
+            <div className="bg-panel border border-border-custom rounded-2xl p-6 shadow-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 p-4 opacity-5 rotate-12"><Coins size={120} /></div>
-              
-              <div className="space-y-5 relative z-10">
+              <div className="space-y-5 relative z-10 mt-1">
                 <div className="space-y-1.5">
                   <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex items-center gap-2">
                      <Coins size={12} className="text-primary" /> Crypto
@@ -119,12 +115,12 @@ const AirdropCreate = () => {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-black text-text-muted uppercase tracking-widest">Amount</label>
+                  <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex">Amount</label>
                   <input type="text" placeholder="0.00" className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-4 py-3 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all" />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-black text-text-muted uppercase tracking-widest">Reason</label>
+                  <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex">Reason</label>
                   <input type="text" placeholder="Enter reason" className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-4 py-3 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all" />
                 </div>
 
@@ -136,12 +132,12 @@ const AirdropCreate = () => {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-black text-text-muted uppercase tracking-widest leading-none">Number of Payment</label>
+                  <label className="text-[10px] font-black text-text-muted uppercase tracking-widest leading-none flex">Number of Payment</label>
                   <input type="text" defaultValue="0" readOnly className="w-full bg-inputBg/50 border border-border-custom text-text-muted rounded-xl px-4 py-3 text-xs font-bold cursor-not-allowed opacity-70" />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-black text-text-muted uppercase tracking-widest leading-none">Payment Amount</label>
+                  <label className="text-[10px] font-black text-text-muted uppercase tracking-widest leading-none flex">Payment Amount</label>
                   <input type="text" readOnly className="w-full bg-inputBg/50 border border-border-custom text-text-muted rounded-xl px-4 py-3 text-xs font-bold min-h-[48px] cursor-not-allowed opacity-70" />
                 </div>
 

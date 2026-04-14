@@ -28,7 +28,7 @@ const FaqList = () => {
         <div className="bg-panel border border-border-custom rounded-2xl p-6">
           <div className="flex justify-end items-center gap-3">
             <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[150px]">
-              <option>- Search Options -</option>
+              <option>Search Options</option>
               <option>Question</option>
               <option>Answer</option>
             </select>

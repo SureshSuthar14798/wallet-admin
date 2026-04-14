@@ -15,7 +15,7 @@ const CoinTransactionList = () => {
     <div className="animate-enter space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold text-text-main tracking-tight">Coin Transaction List</h2>
-        <button className="px-5 py-2.5 bg-primary/20 text-primary border border-primary/30 rounded-xl text-xs font-bold hover:bg-primary hover:text-white transition-all flex items-center gap-2">
+        <button className="px-5 py-2.5 bg-primary/20 text-primary border border-primary rounded-xl text-xs font-bold hover:bg-primary hover:text-white transition-all flex items-center gap-2">
             <Download size={14} /> Download Excel
         </button>
       </div>

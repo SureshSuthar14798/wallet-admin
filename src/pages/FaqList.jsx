@@ -112,7 +112,7 @@ const FaqList = () => {
                 <input
                   type="text"
                   placeholder="Please enter question"
-                  className="w-full bg-inputBg/50 border border-border-custom rounded-2xl px-5 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-text-muted/20"
+                  className="w-full bg-inputBg border border-border-custom text-text-main rounded-2xl px-5 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-text-muted"
                 />
               </div>
 
@@ -123,7 +123,7 @@ const FaqList = () => {
                 <textarea
                   rows="6"
                   placeholder="Please enter answer."
-                  className="w-full bg-inputBg/50 border border-border-custom rounded-2xl px-5 py-4 text-sm  focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-text-muted/20 resize-none"
+                  className="w-full bg-inputBg border border-border-custom text-text-main rounded-2xl px-5 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-text-muted resize-none"
                 ></textarea>
               </div>
             </div>

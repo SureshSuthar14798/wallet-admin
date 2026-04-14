@@ -27,46 +27,60 @@ const LoginLogs = () => {
       </div>
 
       {/* Filter Section */}
-      <div className="bg-panel border border-border-custom rounded-2xl p-6">
-        <div className="flex flex-wrap items-center gap-3">
-          <div className="flex items-center gap-2">
-            <label className="text-[10px] font-black text-text-muted uppercase tracking-widest whitespace-nowrap">Registration Date</label>
-            <div className="flex items-center gap-1.5">
-                <input type="date" className="bg-inputBg border border-border-custom text-text-main rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50" />
-                <span className="text-text-muted">~</span>
-                <input type="date" className="bg-inputBg border border-border-custom text-text-main rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50" />
+      <div className="bg-panel border border-border-custom rounded-2xl p-4 sm:p-6 shadow-sm">
+        <div className="flex flex-col lg:flex-row lg:items-end gap-4">
+          <div className="space-y-2">
+            <label className="text-[10px] font-black text-text-muted uppercase tracking-widest ml-1">Registration Date</label>
+            <div className="flex items-center gap-2">
+              <input type="date" className="flex-1 bg-inputBg border border-border-custom text-text-main rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all font-medium" />
+              <span className="text-text-muted font-bold">~</span>
+              <input type="date" className="flex-1 bg-inputBg border border-border-custom text-text-main rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all font-medium" />
             </div>
           </div>
 
-          <div className="flex flex-1 items-center gap-2">
-            <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[120px]">
-                <option>Login Status</option>
-                <option>Login</option>
-                <option>Logout</option>
-            </select>
-            <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[100px]">
-                <option>User</option>
-                <option>Admin</option>
-                <option>User</option>
-            </select>
-            <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[140px]">
-                <option>Search Options</option>
-                <option>ID</option>
-                <option>IP Address</option>
-            </select>
-            <div className="relative flex-1">
-                <input 
-                    type="text" 
-                    placeholder="Please select a search opt" 
-                    className="w-full bg-inputBg border border-border-custom text-text-main rounded-lg px-4 py-1.5 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50"
-                />
+          <div className="flex-1 flex flex-wrap items-end gap-3">
+            <div className="flex-1 min-w-[120px] space-y-2">
+                <label className="text-[10px] font-black text-text-muted uppercase tracking-widest ml-1">Login Status</label>
+                <select className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-3 py-2 text-xs font-bold focus:outline-none cursor-pointer">
+                    <option>Login Status</option>
+                    <option>Login</option>
+                    <option>Logout</option>
+                </select>
             </div>
-            <button className="px-6 py-1.5 bg-primary text-white rounded-lg text-xs font-bold shadow-md shadow-primary/20 hover:opacity-90 transition-all flex items-center gap-2">
-              <Search size={14} /> Search
-            </button>
-            <button className="px-5 py-1.5 bg-panel border border-border-custom text-text-secondary rounded-lg text-xs font-bold hover:bg-panel-hover transition-all flex items-center gap-2">
-                <RotateCcw size={12} /> Reset
-            </button>
+            <div className="flex-1 min-w-[100px] space-y-2">
+                <label className="text-[10px] font-black text-text-muted uppercase tracking-widest ml-1">User Type</label>
+                <select className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-3 py-2 text-xs font-bold focus:outline-none cursor-pointer">
+                    <option>All Types</option>
+                    <option>Admin</option>
+                    <option>User</option>
+                </select>
+            </div>
+            <div className="flex-[2] min-w-[240px] space-y-2">
+                <label className="text-[10px] font-black text-text-muted uppercase tracking-widest ml-1">Search Keyword</label>
+                <div className="flex gap-2">
+                    <select className="bg-inputBg border border-border-custom text-text-main rounded-xl px-3 py-2 text-xs font-bold focus:outline-none min-w-[100px] cursor-pointer">
+                        <option>ID</option>
+                        <option>IP Address</option>
+                    </select>
+                    <div className="relative flex-1">
+                        <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted" />
+                        <input
+                            type="text"
+                            placeholder="Enter keyword..."
+                            className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl pl-9 pr-4 py-2 text-xs font-medium focus:outline-none focus:ring-1 focus:ring-primary/50"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div className="flex gap-2 w-full sm:w-auto">
+                <button className="flex-1 sm:flex-none px-6 py-2 bg-primary text-white rounded-xl text-xs font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all flex items-center justify-center gap-2">
+                <Search size={16} /> Search
+                </button>
+                <button className="px-4 py-2 bg-inputBg border border-border-custom text-text-secondary rounded-xl text-xs font-bold hover:bg-panel-hover transition-all flex items-center justify-center gap-2">
+                    <RotateCcw size={14} />
+                </button>
+            </div>
           </div>
         </div>
       </div>

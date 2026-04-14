@@ -15,55 +15,67 @@ const CoinTransactionList = () => {
     <div className="animate-enter space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold text-text-main tracking-tight">Coin Transaction List</h2>
-        <button className="px-5 py-2.5 bg-primary/20 text-primary border border-primary rounded-xl text-xs font-bold hover:bg-primary hover:text-white transition-all flex items-center gap-2">
-            <Download size={14} /> Download Excel
+        <button className="px-3 py-2 sm:px-5 sm:py-2.5 bg-primary/20 text-primary border border-primary rounded-xl text-[10px] sm:text-xs font-bold hover:bg-primary hover:text-white transition-all flex items-center gap-2 shrink-0">
+            <Download size={14} /> <span className="hidden xs:inline">Download Excel</span><span className="xs:hidden">Excel</span>
         </button>
       </div>
 
       {/* Filter Section */}
-      <div className="bg-panel border border-border-custom rounded-2xl p-6 space-y-4">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
-          <div className="lg:col-span-4 flex items-center gap-3">
-            <label className="text-[10px] font-black text-text-muted uppercase tracking-widest whitespace-nowrap">Registration Date</label>
+      <div className="bg-panel border border-border-custom rounded-2xl p-4 sm:p-6 shadow-sm">
+        <div className="flex flex-col lg:flex-row lg:items-end gap-4">
+          <div className="space-y-2">
+            <label className="text-[10px] font-black text-text-muted uppercase tracking-widest ml-1">Registration Date</label>
             <div className="flex items-center gap-2">
-                <input type="date" className="bg-inputBg border border-border-custom text-text-main rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50" />
-                <span className="text-text-muted">~</span>
-                <input type="date" className="bg-inputBg border border-border-custom text-text-main rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50" />
+              <input type="date" className="flex-1 bg-inputBg border border-border-custom text-text-main rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all font-medium" />
+              <span className="text-text-muted font-bold">~</span>
+              <input type="date" className="flex-1 bg-inputBg border border-border-custom text-text-main rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all font-medium" />
             </div>
           </div>
 
-          <div className="lg:col-span-8 flex flex-wrap items-center gap-2">
-            <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[110px]">
-                <option>Coin Type</option>
-                <option>BTC</option>
-                <option>ETH</option>
-                <option>USDT</option>
-            </select>
-            <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[150px]">
-                <option>Transaction Status</option>
-                <option>Success</option>
-                <option>Pending</option>
-                <option>Failed</option>
-            </select>
-            <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[140px]">
-                <option>Search Option</option>
-                <option>TXID</option>
-                <option>Sender ID</option>
-                <option>Address</option>
-            </select>
-            <div className="relative flex-1 min-w-[200px]">
-                <input 
-                    type="text" 
-                    placeholder="Please select a search opt" 
-                    className="w-full bg-inputBg border border-border-custom text-text-main rounded-lg px-4 py-1.5 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50"
-                />
+          <div className="flex-1 flex flex-wrap items-end gap-3 justify-end">
+            <div className="flex-1 min-w-[120px] space-y-2">
+                <label className="text-[10px] font-black text-text-muted uppercase tracking-widest ml-1">Coin Type</label>
+                <select className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-3 py-2 text-xs font-bold focus:outline-none cursor-pointer">
+                    <option>Coin Type</option>
+                    <option>BTC</option>
+                    <option>ETH</option>
+                    <option>USDT</option>
+                </select>
             </div>
-            <div className="flex gap-2">
-                <button className="px-6 py-1.5 bg-primary text-white rounded-lg text-xs font-bold shadow-md shadow-primary/20 hover:opacity-90 transition-all flex items-center gap-2">
-              <Search size={14} /> Search
-            </button>
-                <button className="px-5 py-1.5 bg-panel border border-border-custom text-text-secondary rounded-lg text-xs font-bold hover:bg-panel-hover transition-all flex items-center gap-2">
-                    <RotateCcw size={12} /> Reset
+            <div className="flex-1 min-w-[150px] space-y-2">
+                <label className="text-[10px] font-black text-text-muted uppercase tracking-widest ml-1">Status</label>
+                <select className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-3 py-2 text-xs font-bold focus:outline-none cursor-pointer">
+                    <option>All Status</option>
+                    <option>Success</option>
+                    <option>Pending</option>
+                    <option>Failed</option>
+                </select>
+            </div>
+            <div className="flex-[2] min-w-[240px] space-y-2">
+                <label className="text-[10px] font-black text-text-muted uppercase tracking-widest ml-1">Search Keyword</label>
+                <div className="flex gap-2">
+                    <select className="bg-inputBg border border-border-custom text-text-main rounded-xl px-3 py-2 text-xs font-bold focus:outline-none min-w-[100px] cursor-pointer">
+                        <option>TXID</option>
+                        <option>Sender ID</option>
+                        <option>Address</option>
+                    </select>
+                    <div className="relative flex-1">
+                        <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted" />
+                        <input
+                            type="text"
+                            placeholder="Enter keyword..."
+                            className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl pl-9 pr-4 py-2 text-xs font-medium focus:outline-none focus:ring-1 focus:ring-primary/50"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div className="flex gap-2 w-full sm:w-auto">
+                <button className="flex-1 sm:flex-none px-6 py-2 bg-primary text-white rounded-xl text-xs font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all flex items-center justify-center gap-2">
+                <Search size={16} /> Search
+                </button>
+                <button className="px-4 py-2 bg-inputBg border border-border-custom text-text-secondary rounded-xl text-xs font-bold hover:bg-panel-hover transition-all flex items-center justify-center gap-2">
+                <RotateCcw size={14} />
                 </button>
             </div>
           </div>

@@ -107,3 +107,23 @@ body::before {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-muted);
 }
+
+/* Premium Disabled/ReadOnly Input Styling */
+input:disabled, 
+input[readonly], 
+select:disabled, 
+textarea:disabled {
+  @apply cursor-not-allowed opacity-60;
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  color: var(--text-muted) !important;
+  border-color: var(--border-color) !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme='light'] input:disabled, 
+[data-theme='light'] input[readonly], 
+[data-theme='light'] select:disabled, 
+[data-theme='light'] textarea:disabled {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+  color: var(--text-secondary) !important;
+}

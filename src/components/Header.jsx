@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Bell, Search, UserCircle, Sun, Moon, LogOut } from 'lucide-react';
+import { Bell, Search, UserCircle, Sun, Moon, LogOut, Menu } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
-const Header = () => {
+const Header = ({ onMenuClick }) => {
   const navigate = useNavigate();
   const [isDark, setIsDark] = useState(true);
   const [showNotifications, setShowNotifications] = useState(false);
@@ -52,8 +52,14 @@ const Header = () => {
   };
 
   return (
-    <header className="h-16 bg-glass backdrop-blur-md border-b border-border-custom px-6 flex items-center justify-between sticky top-0 z-40 transition-colors">
+    <header className="h-16 bg-glass backdrop-blur-md border-b border-border-custom px-4 sm:px-6 flex items-center justify-between sticky top-0 z-40 transition-colors">
       <div className="flex items-center gap-4 flex-1">
+        <button 
+          onClick={onMenuClick}
+          className="lg:hidden p-2 text-text-muted hover:text-text-main transition-colors mr-1"
+        >
+          <Menu size={20} />
+        </button>
         {/* <div className="relative w-full max-w-[280px] group hidden sm:block">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted group-focus-within:text-primary transition-colors" size={16} />
           <input 
@@ -115,7 +121,7 @@ const Header = () => {
 
          <div className="h-8 w-px bg-border-custom mx-1"></div>
 
-         <div className="flex items-center gap-3 pl-2 group cursor-pointer relative" ref={profileRef} onClick={() => setShowProfileMenu(!showProfileMenu)}>
+         <div className="flex items-center gap-3 lg:pl-2 group cursor-pointer relative" ref={profileRef} onClick={() => setShowProfileMenu(!showProfileMenu)}>
             <div className="text-right hidden sm:block">
               <div className="text-xs font-bold text-text-main leading-tight group-hover:text-primary transition-colors">Admin_Alpha</div>
               <div className="text-[10px] font-black text-success uppercase tracking-widest flex items-center justify-end gap-1">

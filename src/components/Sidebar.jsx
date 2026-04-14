@@ -18,12 +18,14 @@ import {
   ChevronDown, 
   ChevronRight, 
   LogOut,
-  TrendingUp 
+  TrendingUp,
+  X 
 } from 'lucide-react';
 import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import toast from 'react-hot-toast';
-const Sidebar = () => {
+
+const Sidebar = ({ isOpen, onClose }) => {
   const location = useLocation();
   const [openSubmenu, setOpenSubmenu] = useState('member'); // Default open or based on location
 
@@ -88,14 +90,20 @@ const Sidebar = () => {
   ];
 
   return (
-    <aside className="w-[260px] bg-panel border-r border-border-custom flex flex-col z-50 transition-colors">
-      <div className="h-16 flex items-center px-6 border-b border-border-custom bg-panel-solid/50">
+    <aside className={`
+      fixed lg:static inset-y-0 left-0 w-[260px] bg-panel border-r border-border-custom flex flex-col z-[60] transition-transform duration-300 ease-in-out
+      ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+    `}>
+      <div className="h-16 flex items-center justify-between px-6 border-b border-border-custom bg-panel-solid/50">
         <div className="flex items-center gap-2.5">
           <div className="w-8 h-8 bg-primary rounded-[10px] flex items-center justify-center shadow-lg shadow-primary/20">
             <Wallet size={16} className="text-white" />
           </div>
           <span className="text-sm font-black text-text-main uppercase tracking-widest">Crypto Admin</span>
         </div>
+        <button onClick={onClose} className="lg:hidden p-1.5 text-text-muted hover:text-text-main transition-colors">
+            <X size={20} />
+        </button>
       </div>
 
       <div className="flex-1 py-6 px-3 space-y-1 overflow-y-auto scrollbar-hide">
@@ -140,6 +148,7 @@ const Sidebar = () => {
                         <NavLink 
                           key={sub.path} 
                           to={sub.path} 
+                          onClick={() => { if(window.innerWidth < 1024) onClose(); }}
                           className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg transition-all font-bold text-[10px] uppercase tracking-widest ${
                             isActive 
                               ? 'text-primary bg-primary/5' 
@@ -162,6 +171,7 @@ const Sidebar = () => {
             <NavLink 
               key={item.path} 
               to={item.path} 
+              onClick={() => { if(window.innerWidth < 1024) onClose(); }}
               className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-bold text-[10px] uppercase tracking-widest border ${
                 isActive 
                   ? 'text-white border-border-custom bg-gradient-to-r from-primary via-primary/[0.05] to-transparent shadow-sm shadow-primary/5' 

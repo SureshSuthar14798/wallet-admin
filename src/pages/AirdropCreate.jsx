@@ -4,7 +4,8 @@ import {
   Coins, 
   Users,
   CreditCard,
-  FileText
+  FileText,
+  RotateCcw
 } from 'lucide-react';
 
 const AirdropCreate = () => {
@@ -12,39 +13,46 @@ const AirdropCreate = () => {
     <div className="animate-enter space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold text-text-main tracking-tight">Air Drop Management</h2>
-        <button className="px-5 py-2.5 bg-primary/20 text-primary border border-primary rounded-xl text-xs font-bold hover:bg-primary hover:text-white transition-all flex items-center gap-2">
-            <Download size={14} /> Download Excel
+        <button className="px-3 py-2 sm:px-5 sm:py-2.5 bg-primary/20 text-primary border border-primary rounded-xl text-[10px] sm:text-xs font-bold hover:bg-primary hover:text-white transition-all flex items-center gap-2 shrink-0">
+            <Download size={14} /> <span className="hidden xs:inline">Download Excel</span><span className="xs:hidden">Excel</span>
         </button>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Left Side: Table & Filters */}
         <div className="lg:col-span-8 space-y-4">
-          <div className="bg-panel border border-border-custom rounded-2xl p-6 space-y-4 shadow-sm">
-            <div className="flex items-center gap-2">
-                <label className="text-[10px] font-black text-text-muted uppercase tracking-widest whitespace-nowrap">Registration Date</label>
-                <div className="flex items-center gap-1.5">
-                    <input type="date" className="bg-inputBg border border-border-custom text-text-main rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50" />
-                    <span className="text-text-muted">~</span>
-                    <input type="date" className="bg-inputBg border border-border-custom text-text-main rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50" />
+          <div className="bg-panel border border-border-custom rounded-2xl p-4 sm:p-6 space-y-4 shadow-sm">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                <label className="text-[10px] font-black text-text-muted uppercase tracking-widest ml-1 min-w-[120px]">Registration Date</label>
+                <div className="flex items-center gap-1.5 flex-1">
+                    <input type="date" className="flex-1 bg-inputBg border border-border-custom text-text-main rounded-xl px-2 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all" />
+                    <span className="text-text-muted font-bold">~</span>
+                    <input type="date" className="flex-1 bg-inputBg border border-border-custom text-text-main rounded-xl px-2 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all" />
                 </div>
             </div>
-            <div className="flex items-center gap-2">
-                <select className="bg-inputBg border border-border-custom text-text-main rounded-lg px-3 py-1.5 text-xs focus:outline-none min-w-[150px]">
-                    <option>Search Option</option>
-                    <option>Email</option>
-                    <option>Name</option>
-                </select>
-                <input 
-                    type="text" 
-                    placeholder="Please enter user email" 
-                    className="flex-1 bg-inputBg border border-border-custom text-text-main rounded-lg px-4 py-1.5 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50"
-                />
-                <div className="flex gap-2">
-                    <button className="px-6 py-1.5 bg-primary text-white rounded-lg text-xs font-bold shadow-md shadow-primary/20 hover:opacity-90 transition-all flex items-center gap-2">
-              <Search size={14} /> Search
-            </button>
-                    <button className="px-5 py-1.5 bg-panel border border-border-custom text-text-secondary rounded-lg text-xs font-bold hover:bg-panel-hover transition-all">Reset</button>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+                <div className="flex flex-1 gap-2">
+                    <select className="bg-inputBg border border-border-custom text-text-main rounded-xl px-3 py-2 text-xs font-bold focus:outline-none min-w-[120px] cursor-pointer">
+                        <option>Search Option</option>
+                        <option>Email</option>
+                        <option>Name</option>
+                    </select>
+                    <div className="relative flex-1">
+                        <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted" />
+                        <input 
+                            type="text" 
+                            placeholder="user email..." 
+                            className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl pl-9 pr-4 py-2 text-xs font-medium focus:outline-none focus:ring-1 focus:ring-primary/50"
+                        />
+                    </div>
+                </div>
+                <div className="flex gap-2 w-full sm:w-auto">
+                    <button className="flex-1 sm:flex-none px-6 py-2 bg-primary text-white rounded-xl text-xs font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all flex items-center justify-center gap-2">
+                        <Search size={16} /> Search
+                    </button>
+                    <button className="px-4 py-2 bg-inputBg border border-border-custom text-text-secondary rounded-xl text-xs font-bold hover:bg-panel-hover transition-all">
+                        <RotateCcw size={14} />
+                    </button>
                 </div>
             </div>
           </div>
@@ -133,12 +141,12 @@ const AirdropCreate = () => {
 
                 <div className="space-y-1.5">
                   <label className="text-[10px] font-black text-text-muted uppercase tracking-widest leading-none flex">Number of Payment</label>
-                  <input type="text" defaultValue="0" readOnly className="w-full bg-inputBg/50 border border-border-custom text-text-muted rounded-xl px-4 py-3 text-xs font-bold cursor-not-allowed opacity-70" />
+                  <input type="text" defaultValue="0" readOnly className="w-full border border-border-custom rounded-xl px-4 py-3 text-xs font-bold" />
                 </div>
 
                 <div className="space-y-1.5">
                   <label className="text-[10px] font-black text-text-muted uppercase tracking-widest leading-none flex">Payment Amount</label>
-                  <input type="text" readOnly className="w-full bg-inputBg/50 border border-border-custom text-text-muted rounded-xl px-4 py-3 text-xs font-bold min-h-[48px] cursor-not-allowed opacity-70" />
+                  <input type="text" readOnly className="w-full border border-border-custom rounded-xl px-4 py-3 text-xs font-bold min-h-[48px]" />
                 </div>
 
                 <div className="flex gap-3 pt-2">

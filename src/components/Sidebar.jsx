@@ -172,10 +172,10 @@ const Sidebar = ({ isOpen, onClose }) => {
               key={item.path} 
               to={item.path} 
               onClick={() => { if(window.innerWidth < 1024) onClose(); }}
-              className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-bold text-[10px] uppercase tracking-widest border ${
+              className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-bold text-[10px] uppercase tracking-widest ${
                 isActive 
-                  ? 'text-white border-border-custom bg-gradient-to-r from-primary via-primary/[0.05] to-transparent shadow-sm shadow-primary/5' 
-                  : 'text-text-secondary hover:text-text-main hover:bg-panel-hover border-transparent'
+                  ? 'text-white bg-zinc-400 shadow-sm shadow-primary/5' 
+                  : 'text-text-secondary hover:text-text-main hover:bg-panel-hover'
               }`}
             >
               <div className={`${isActive ? 'opacity-100 scale-110' : 'opacity-60'} transition-transform`}>{item.icon}</div>

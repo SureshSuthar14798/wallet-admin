@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronRight, Save, Eye, EyeOff } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const AdminRegistration = () => {
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className="animate-enter max-w-7xl mx-auto space-y-8">
       <div className="mb-8">
-        <h2 className="text-2xl font-bold text-text-main tracking-tight">Admin Registration</h2>
+        <h2 className="text-2xl font-bold text-text-main tracking-tight">{t('admin_reg_title')}</h2>
       </div>
 
       <div className="bg-panel border border-border-custom rounded-2xl p-4 sm:p-8 shadow-sm">
@@ -18,33 +20,33 @@ const AdminRegistration = () => {
           {/* Row 1 */}
           <div className="space-y-3">
             <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex items-center gap-2 mb-1">
-              <ChevronRight size={14} className="text-primary" /> Admin Id
+              <ChevronRight size={14} className="text-primary" /> {t('admin_id_label')}
             </label>
             <input 
               type="text" 
-              placeholder="Please enter your ID."
+              placeholder={t('admin_id_placeholder')}
               className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all shadow-inner"
             />
           </div>
 
           <div className="space-y-3">
             <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex items-center gap-2 mb-1">
-              <ChevronRight size={14} className="text-primary" /> Admin Name
+              <ChevronRight size={14} className="text-primary" /> {t('admin_name_label')}
             </label>
             <input 
               type="text" 
-              placeholder="Input your name please"
+              placeholder={t('admin_name_placeholder')}
               className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all shadow-inner"
             />
           </div>
 
           <div className="space-y-3">
             <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex items-center gap-2 mb-1">
-              <ChevronRight size={14} className="text-primary" /> Administrator Mobile Number
+              <ChevronRight size={14} className="text-primary" /> {t('admin_mobile_label')}
             </label>
             <div className="flex flex-row gap-2">
               <select className="bg-inputBg border border-border-custom text-text-main rounded-xl px-2 sm:px-3 py-3 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all w-28 sm:w-32 cursor-pointer">
-                <option value="">code</option>
+                <option value="">{t('common_actions') || 'code'}</option>
                 <option value="+82">+82 (KR)</option>
                 <option value="+1">+1 (US)</option>
                 <option value="+91">+91 (IN)</option>
@@ -60,18 +62,18 @@ const AdminRegistration = () => {
           {/* Row 2 */}
           <div className="space-y-3">
             <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex items-center gap-2 mb-1">
-              <ChevronRight size={14} className="text-primary" /> Admin Part
+              <ChevronRight size={14} className="text-primary" /> {t('admin_part_label')}
             </label>
             <input 
               type="text" 
-              placeholder="Please enter your department."
+              placeholder={t('admin_part_placeholder')}
               className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all shadow-inner"
             />
           </div>
 
           <div className="space-y-3">
             <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex items-center gap-2 mb-1">
-              <ChevronRight size={14} className="text-primary" /> Admin Password
+              <ChevronRight size={14} className="text-primary" /> {t('admin_password_label')}
             </label>
             <div className="relative">
               <input 
@@ -90,7 +92,7 @@ const AdminRegistration = () => {
 
           <div className="space-y-3">
             <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex items-center gap-2 mb-1">
-              <ChevronRight size={14} className="text-primary" /> Admin Status
+              <ChevronRight size={14} className="text-primary" /> {t('admin_status_label')}
             </label>
             <div className="flex items-center gap-6 h-[46px] bg-inputBg/50 border border-border-custom rounded-xl px-4">
               <label className="flex items-center gap-2 cursor-pointer group">
@@ -98,14 +100,14 @@ const AdminRegistration = () => {
                   <div className="w-4 h-4 rounded-full border-2 border-border-custom peer-checked:border-primary peer-checked:bg-primary transition-all flex items-center justify-center">
                       <div className="w-1.5 h-1.5 rounded-full bg-white opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                   </div>
-                  <span className="text-[11px] font-bold text-text-secondary peer-checked:text-text-main uppercase tracking-wider transition-colors">Active</span>
+                  <span className="text-[11px] font-bold text-text-secondary peer-checked:text-text-main uppercase tracking-wider transition-colors">{t('common_active')}</span>
               </label>
               <label className="flex items-center gap-2 cursor-pointer group">
                   <input type="radio" name="admin-status" className="hidden peer" />
                   <div className="w-4 h-4 rounded-full border-2 border-border-custom peer-checked:border-primary peer-checked:bg-primary transition-all flex items-center justify-center">
                       <div className="w-1.5 h-1.5 rounded-full bg-white opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                   </div>
-                  <span className="text-[11px] font-bold text-text-secondary peer-checked:text-text-main uppercase tracking-wider transition-colors">Inactive</span>
+                  <span className="text-[11px] font-bold text-text-secondary peer-checked:text-text-main uppercase tracking-wider transition-colors">{t('common_inactive')}</span>
               </label>
             </div>
           </div>
@@ -113,11 +115,11 @@ const AdminRegistration = () => {
           {/* Row 3 - Full Width */}
           <div className="space-y-3 lg:col-span-3">
             <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex items-center gap-2 mb-1">
-              <ChevronRight size={14} className="text-primary" /> Admin Notes
+              <ChevronRight size={14} className="text-primary" /> {t('admin_notes_label')}
             </label>
             <input 
               type="text" 
-              placeholder="Please enter what you want to remember."
+              placeholder={t('admin_notes_placeholder')}
               className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all shadow-inner"
             />
           </div>
@@ -126,13 +128,13 @@ const AdminRegistration = () => {
 
         <div className="mt-10 flex gap-3">
           <button className="px-8 py-2.5 bg-primary text-white rounded-lg text-sm font-bold shadow-md shadow-primary/20 hover:opacity-90 transition-all flex items-center gap-2">
-            <Save size={16} /> Save
+            <Save size={16} /> {t('common_save')}
           </button>
           <button 
             onClick={() => navigate('/admin-management')}
             className="px-8 py-2.5 bg-panel border-2 border-border-custom text-text-main rounded-lg text-sm font-bold hover:bg-panel-hover transition-all"
           >
-            List
+            {t('common_list')}
           </button>
         </div>
       </div>

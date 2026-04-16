@@ -1,17 +1,19 @@
 import { Save, Info } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const CoinSetting = () => {
+  const { t } = useLanguage();
   const coins = ['AIW', 'BTC', 'ETH', 'XRP'];
 
   return (
     <div className="animate-enter space-y-6 pb-20">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-text-main tracking-tight">Coin Settings</h2>
-          <p className="text-[10px] sm:text-xs text-text-muted font-bold uppercase tracking-wider mt-1 opacity-70">Protocol fees & withdrawal architecture</p>
+          <h2 className="text-2xl font-bold text-text-main tracking-tight">{t('coin_settings_title')}</h2>
+          <p className="text-[10px] sm:text-xs text-text-muted font-bold uppercase tracking-wider mt-1 opacity-70">{t('coin_settings_subtitle')}</p>
         </div>
         <button className="w-full sm:w-auto px-6 py-2.5 bg-primary text-white rounded-xl text-xs font-black shadow-lg shadow-primary/30 hover:opacity-90 transition-all flex items-center justify-center gap-2 uppercase tracking-widest">
-            <Save size={16} /> Save All
+            <Save size={16} /> {t('btn_save_all')}
         </button>
       </div>
 
@@ -30,7 +32,7 @@ const CoinSetting = () => {
               {/* Row 1: Fees */}
               <div className="space-y-1 lg:space-y-3">
                 <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex items-center gap-2">
-                   <div className="w-1 h-1 rounded-full bg-primary/40"></div> {coin} Transaction Fee
+                   <div className="w-1 h-1 rounded-full bg-primary/40"></div> {coin} {t('label_tx_fee')}
                 </label>
                 <div className="relative">
                     <input type="text" defaultValue="0.00000000" className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-4 py-3 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all shadow-inner" />
@@ -40,7 +42,7 @@ const CoinSetting = () => {
 
               <div className="space-y-1 lg:space-y-3">
                 <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex items-center gap-2">
-                   <div className="w-1 h-1 rounded-full bg-primary/40"></div> {coin} Exchange Fee
+                   <div className="w-1 h-1 rounded-full bg-primary/40"></div> {coin} {t('label_exchange_fee')}
                 </label>
                 <div className="relative">
                     <input type="text" defaultValue="0" className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-4 py-3 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all shadow-inner" />
@@ -50,7 +52,7 @@ const CoinSetting = () => {
 
               <div className="flex flex-col gap-4">
                 <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex items-center gap-2">
-                   <div className="w-1 h-1 rounded-full bg-primary/40"></div> Internal Withdrawal
+                   <div className="w-1 h-1 rounded-full bg-primary/40"></div> {t('label_internal_withdraw')}
                 </label>
                 <div className="flex gap-6 bg-inputBg/50 border border-border-custom rounded-xl px-4 py-2.5 h-[46px] items-center">
                     <label className="flex items-center gap-2 cursor-pointer group/radio">
@@ -58,14 +60,14 @@ const CoinSetting = () => {
                         <div className="w-4 h-4 rounded-full border-2 border-border-custom peer-checked:border-primary peer-checked:bg-primary transition-all flex items-center justify-center">
                             <div className="w-1.5 h-1.5 rounded-full bg-white opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                         </div>
-                        <span className="text-[10px] font-black text-text-secondary peer-checked:text-text-main transition-colors uppercase tracking-wider">Possible</span>
+                        <span className="text-[10px] font-black text-text-secondary peer-checked:text-text-main transition-colors uppercase tracking-wider">{t('label_possible')}</span>
                     </label>
                     <label className="flex items-center gap-2 cursor-pointer group/radio">
                         <input type="radio" name={`${coin}-internal`} className="hidden peer" />
                         <div className="w-4 h-4 rounded-full border-2 border-border-custom peer-checked:border-rose-500 peer-checked:bg-rose-500 transition-all flex items-center justify-center">
                             <div className="w-1.5 h-1.5 rounded-full bg-white opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                         </div>
-                        <span className="text-[10px] font-black text-text-secondary peer-checked:text-text-main transition-colors uppercase tracking-wider">Impossible</span>
+                        <span className="text-[10px] font-black text-text-secondary peer-checked:text-text-main transition-colors uppercase tracking-wider">{t('label_impossible')}</span>
                     </label>
                 </div>
               </div>
@@ -73,7 +75,7 @@ const CoinSetting = () => {
               {/* Row 2: Limits & External */}
               <div className="space-y-1 lg:space-y-3">
                 <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex items-center gap-2">
-                   <div className="w-1 h-1 rounded-full bg-primary/40"></div> Max Withdrawal
+                   <div className="w-1 h-1 rounded-full bg-primary/40"></div> {t('label_max_withdraw')}
                 </label>
                 <div className="relative">
                     <input type="text" defaultValue="0.00000000" className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-4 py-3 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all shadow-inner" />
@@ -83,7 +85,7 @@ const CoinSetting = () => {
 
               <div className="space-y-1 lg:space-y-3">
                 <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex items-center gap-2">
-                   <div className="w-1 h-1 rounded-full bg-primary/40"></div> Min Withdrawal
+                   <div className="w-1 h-1 rounded-full bg-primary/40"></div> {t('label_min_withdraw')}
                 </label>
                 <div className="relative">
                     <input type="text" defaultValue="0.00000000" className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-4 py-3 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all shadow-inner" />
@@ -93,7 +95,7 @@ const CoinSetting = () => {
 
               <div className="flex flex-col gap-4">
                 <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex items-center gap-2">
-                   <div className="w-1 h-1 rounded-full bg-primary/40"></div> External Withdrawal
+                   <div className="w-1 h-1 rounded-full bg-primary/40"></div> {t('label_external_withdraw')}
                 </label>
                 <div className="flex gap-6 bg-inputBg/50 border border-border-custom rounded-xl px-4 py-2.5 h-[46px] items-center">
                     <label className="flex items-center gap-2 cursor-pointer group/radio">
@@ -101,14 +103,14 @@ const CoinSetting = () => {
                         <div className="w-4 h-4 rounded-full border-2 border-border-custom peer-checked:border-primary peer-checked:bg-primary transition-all flex items-center justify-center">
                             <div className="w-1.5 h-1.5 rounded-full bg-white opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                         </div>
-                        <span className="text-[10px] font-black text-text-secondary peer-checked:text-text-main transition-colors uppercase tracking-wider">Possible</span>
+                        <span className="text-[10px] font-black text-text-secondary peer-checked:text-text-main transition-colors uppercase tracking-wider">{t('label_possible')}</span>
                     </label>
                     <label className="flex items-center gap-2 cursor-pointer group/radio">
                         <input type="radio" name={`${coin}-external`} className="hidden peer" />
                         <div className="w-4 h-4 rounded-full border-2 border-border-custom peer-checked:border-rose-500 peer-checked:bg-rose-500 transition-all flex items-center justify-center">
                             <div className="w-1.5 h-1.5 rounded-full bg-white opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                         </div>
-                        <span className="text-[10px] font-black text-text-secondary peer-checked:text-text-main transition-colors uppercase tracking-wider">Impossible</span>
+                        <span className="text-[10px] font-black text-text-secondary peer-checked:text-text-main transition-colors uppercase tracking-wider">{t('label_impossible')}</span>
                     </label>
                 </div>
               </div>

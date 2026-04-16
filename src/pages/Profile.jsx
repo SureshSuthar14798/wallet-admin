@@ -1,13 +1,16 @@
 import React from 'react';
 import { User, Mail, Shield, Smartphone, Key, Save, Building } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const Profile = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="animate-enter max-w-5xl mx-auto space-y-6">
       <div className="flex justify-between items-center">
         <div>
-          <h2 className="text-2xl font-bold text-text-main tracking-tight">My Profile</h2>
-          <p className="text-xs text-text-muted font-medium">Manage your administrative ID and security settings</p>
+          <h2 className="text-2xl font-bold text-text-main tracking-tight">{t('profile_title')}</h2>
+          <p className="text-xs text-text-muted font-medium">{t('profile_subtitle')}</p>
         </div>
       </div>
 
@@ -20,7 +23,7 @@ const Profile = () => {
             {/* Admin ID - Read Only */}
             <div className="space-y-2">
               <label className="text-[10px] font-black text-text-muted uppercase tracking-[2px] flex items-center gap-2">
-                <Mail size={12} className="text-primary" /> Admin ID
+                <Mail size={12} className="text-primary" /> {t('admin_id_label')}
               </label>
               <input 
                 type="text" 
@@ -33,7 +36,7 @@ const Profile = () => {
             {/* Admin Name */}
             <div className="space-y-2">
               <label className="text-[10px] font-black text-text-muted uppercase tracking-[2px] flex items-center gap-2">
-                <User size={12} className="text-primary" /> Admin Name
+                <User size={12} className="text-primary" /> {t('admin_name_label')}
               </label>
               <input 
                 type="text" 
@@ -45,11 +48,11 @@ const Profile = () => {
             {/* Mobile Number */}
             <div className="space-y-2">
               <label className="text-[10px] font-black text-text-muted uppercase tracking-[2px] flex items-center gap-2">
-                <Smartphone size={12} className="text-primary" /> Administrator Mobile Number
+                <Smartphone size={12} className="text-primary" /> {t('admin_mobile_label')}
               </label>
               <div className="flex gap-2">
                 <select className="bg-inputBg border border-border-custom text-text-main rounded-xl px-3 py-3 text-xs font-bold focus:outline-none min-w-[100px]">
-                    <option>Select code</option>
+                    <option>{t('common_search')}</option>
                     <option>+82</option>
                     <option>+1</option>
                 </select>
@@ -64,7 +67,7 @@ const Profile = () => {
             {/* Manager's Department */}
             <div className="space-y-2">
               <label className="text-[10px] font-black text-text-muted uppercase tracking-[2px] flex items-center gap-2">
-                <Building size={12} className="text-primary" /> Manager's Department
+                <Building size={12} className="text-primary" /> {t('profile_dept_label')}
               </label>
               <input 
                 type="text" 
@@ -77,11 +80,11 @@ const Profile = () => {
             {/* Admin Password */}
             <div className="space-y-2">
               <label className="text-[10px] font-black text-text-muted uppercase tracking-[2px] flex items-center gap-2">
-                <Key size={12} className="text-primary" /> Admin Password
+                <Key size={12} className="text-primary" /> {t('admin_password_label')}
               </label>
               <input 
                 type="password" 
-                placeholder="Enter new password to change"
+                placeholder={t('profile_pass_placeholder')}
                 className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-4 py-3 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
               />
             </div>
@@ -90,7 +93,7 @@ const Profile = () => {
 
           <div className="pt-6 border-t border-border-custom">
             <button className="px-10 py-3 bg-primary text-white rounded-xl text-xs font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all flex items-center gap-2">
-                <Save size={16} /> Save Changes
+                <Save size={16} /> {t('profile_save_btn')}
             </button>
           </div>
         </form>
@@ -101,8 +104,8 @@ const Profile = () => {
             <Shield size={20} />
         </div>
         <div>
-            <h4 className="text-sm font-bold text-text-main mb-1">Security Tip</h4>
-            <p className="text-xs text-text-muted leading-relaxed">Ensure your password is at least 12 characters long and contains a mix of letters, numbers, and symbols to maintain high-level administrative security.</p>
+            <h4 className="text-sm font-bold text-text-main mb-1">{t('profile_security_tip_title')}</h4>
+            <p className="text-xs text-text-muted leading-relaxed">{t('profile_security_tip_desc')}</p>
         </div>
       </div>
     </div>

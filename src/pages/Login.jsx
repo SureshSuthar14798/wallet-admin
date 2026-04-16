@@ -1,86 +1,102 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Wallet, Eye, EyeOff } from 'lucide-react';
+import React, { useState } from 'react';
+import { Shield, Eye, EyeOff, Lock, User, Wallet } from 'lucide-react';
 import toast from 'react-hot-toast';
+import { useLanguage } from '../context/LanguageContext';
 
 const Login = () => {
-  const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const { t } = useLanguage();
   const [showPassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    userId: '',
+    password: ''
+  });
 
-  useEffect(() => {
-    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-    if (isLoggedIn) {
-      navigate('/admin-management');
-    }
-  }, [navigate]);
-
-  const handleLogin = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (email === 'admin@gmail.com' && password === 'admin123') {
+    if (formData.userId === 'admin' && formData.password === 'admin123') {
       localStorage.setItem('isLoggedIn', 'true');
-      toast.success('Successfully logged in!');
-      navigate('/admin-management');
+      toast.success(t('login_welcome'));
+      setTimeout(() => {
+        window.location.href = '/admin-management';
+      }, 1000);
     } else {
-      toast.error('Invalid demo credentials. Please use admin@gmail.com / admin123');
+      toast.error(t('login_denied'));
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-main transition-colors p-4">
-      <div className="w-full max-w-[400px] bg-panel border-border-custom rounded-3xl p-8 shadow-sm animate-enter border">
-        <div className="flex flex-col items-center mb-8">
-          <div className="w-12 h-12 bg-primary rounded-[14px] flex items-center justify-center mb-4 shadow-lg shadow-primary/20">
-            <Wallet className="text-white" size={24} />
-          </div>
-          <h1 className="text-2xl font-bold text-text-main mb-1">Admin Wallet</h1>
-          <p className="text-sm text-text-muted font-medium">Crypto Admin Wallet Management</p>
-        </div>
-        
-        <form onSubmit={handleLogin} className="space-y-4">
-          <div className="space-y-1.5">
-            <label className="text-xs font-bold text-text-muted ml-1 uppercase">Email</label>
-            <input 
-              type="email" 
-              placeholder="admin@gmail.com" 
-              className="w-full bg-inputBg border border-border-custom text-text-main rounded-2xl px-5 py-3.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-text-muted/40"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required 
-            />
-          </div>
-          <div className="space-y-1.5">
-            <label className="text-xs font-bold text-text-muted ml-1 uppercase">Password</label>
-            <div className="relative group">
-              <input 
-                type={showPassword ? "text" : "password"} 
-                placeholder="admin123" 
-                className="w-full bg-inputBg border border-border-custom text-text-main rounded-2xl px-5 py-3.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-text-muted/40 pr-12"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required 
-              />
-              <button 
-                type="button"
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-text-muted hover:text-text-main transition-colors p-1"
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-              </button>
-            </div>
-          </div>
-          
-          <button type="submit" className="w-full py-4 bg-primary text-white rounded-2xl text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 active:scale-[0.98] transition-all mt-4 border border-white/10">
-            Sign In
-          </button>
-        </form>
+    <div className="min-h-screen bg-bg-dark flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px] -mr-48 -mt-48"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] -ml-48 -mb-48"></div>
+      
+      <div className="w-full max-w-md animate-enter">
+          <div className="bg-panel border border-border-custom rounded-[32px] p-8 sm:p-10 shadow-2xl relative overflow-hidden group">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+              
+              <div className="flex flex-col items-center mb-10">
+                  <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center shadow-2xl shadow-primary/40 mb-6 group-hover:scale-110 transition-transform duration-500">
+                      <Wallet size={32} className="text-white" />
+                  </div>
+                  <h1 className="text-3xl font-black text-text-main tracking-tighter mb-2">{t('login_title')}</h1>
+                  <div className="flex items-center gap-2 text-[10px] font-black text-text-muted uppercase tracking-[0.2em] bg-inputBg px-3 py-1 rounded-full border border-border-custom">
+                      <Shield size={12} className="text-primary" /> {t('login_subtitle')}
+                  </div>
+              </div>
 
-        <div className="mt-8 flex justify-center gap-6">
-            <span className="text-[11px] font-bold text-text-muted hover:text-primary cursor-pointer transition-colors uppercase tracking-wider">Privacy</span>
-            <span className="text-[11px] font-bold text-text-muted hover:text-primary cursor-pointer transition-colors uppercase tracking-wider">Security</span>
-            <span className="text-[11px] font-bold text-text-muted hover:text-primary cursor-pointer transition-colors uppercase tracking-wider">Help</span>
-        </div>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="space-y-2">
+                      <label className="text-[10px] font-black text-text-muted uppercase tracking-widest ml-1">{t('common_id')}</label>
+                      <div className="relative group/input">
+                          <User className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted transition-colors group-focus-within/input:text-primary" size={18} />
+                          <input 
+                              type="text" 
+                              required
+                              value={formData.userId}
+                              onChange={(e) => setFormData({ ...formData, userId: e.target.value })}
+                              placeholder={t('login_id_placeholder')}
+                              className="w-full bg-inputBg border border-border-custom text-text-main rounded-2xl pl-12 pr-4 py-4 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all shadow-inner"
+                          />
+                      </div>
+                  </div>
+
+                  <div className="space-y-2">
+                      <label className="text-[10px] font-black text-text-muted uppercase tracking-widest ml-1">{t('admin_password_label')}</label>
+                      <div className="relative group/input">
+                          <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted transition-colors group-focus-within/input:text-primary" size={18} />
+                          <input 
+                              type={showPassword ? "text" : "password"}
+                              required
+                              value={formData.password}
+                              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                              placeholder={t('login_password_placeholder')}
+                              className="w-full bg-inputBg border border-border-custom text-text-main rounded-2xl pl-12 pr-12 py-4 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all shadow-inner"
+                          />
+                          <button 
+                              type="button"
+                              onClick={() => setShowPassword(!showPassword)}
+                              className="absolute right-4 top-1/2 -translate-y-1/2 text-text-muted hover:text-primary transition-colors"
+                          >
+                              {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                          </button>
+                      </div>
+                  </div>
+
+                  <button 
+                      type="submit"
+                      className="w-full bg-primary text-white rounded-2xl py-4 text-xs font-black uppercase tracking-[0.2em] shadow-xl shadow-primary/20 hover:shadow-primary/30 hover:-translate-y-0.5 transition-all mt-4 flex items-center justify-center gap-3 group/btn"
+                  >
+                      {t('login_button')} <Shield size={16} className="group-hover/btn:rotate-12 transition-transform" />
+                  </button>
+              </form>
+
+              <div className="mt-10 pt-8 border-t border-border-custom flex flex-col items-center gap-4">
+                  <p className="text-[10px] font-bold text-text-muted text-center uppercase tracking-widest leading-relaxed">
+                      {t('login_restricted')}<br/>
+                      <span className="opacity-50">{t('login_personnel_only')}</span>
+                  </p>
+              </div>
+          </div>
       </div>
     </div>
   );

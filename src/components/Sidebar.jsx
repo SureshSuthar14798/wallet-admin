@@ -24,74 +24,76 @@ import {
 import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { useLanguage } from '../context/LanguageContext';
 
 const Sidebar = ({ isOpen, onClose }) => {
+  const { t } = useLanguage();
   const location = useLocation();
   const [openSubmenu, setOpenSubmenu] = useState('member'); // Default open or based on location
 
   const menuItems = [
     { 
       path: '/admin-management', 
-      name: 'Admin Management', 
+      name: t('nav_admin_management'), 
       icon: <UserCog size={16} /> 
     },
     { 
-      name: 'Member Management', 
+      name: t('nav_member_management'), 
       icon: <Users size={16} />,
       id: 'member',
       submenu: [
-        { path: '/members', name: 'Member List', icon: <List size={14} /> },
-        { path: '/avatars', name: 'Avatar List', icon: <ImageIcon size={14} /> },
+        { path: '/members', name: t('nav_member_list'), icon: <List size={14} /> },
+        { path: '/avatars', name: t('nav_avatar_list'), icon: <ImageIcon size={14} /> },
       ]
     },
     { 
-      name: 'Coin Management', 
+      name: t('nav_coin_management'), 
       icon: <Coins size={16} />,
       id: 'coin',
       submenu: [
-        { path: '/coin-transactions', name: 'Coin Transaction List', icon: <List size={14} /> },
-        { path: '/coin-settings', name: 'Coin Setting', icon: <Settings size={14} /> },
-        { path: '/main-wallet', name: 'Main Wallet', icon: <Wallet size={14} /> },
+        { path: '/coin-transactions', name: t('nav_coin_transaction_list'), icon: <List size={14} /> },
+        { path: '/coin-settings', name: t('nav_coin_setting'), icon: <Settings size={14} /> },
+        { path: '/main-wallet', name: t('nav_main_wallet'), icon: <Wallet size={14} /> },
       ]
     },
     { 
-      name: 'Air Drop Management', 
+      name: t('nav_airdrop_management'), 
       icon: <Gift size={16} />,
       id: 'airdrop',
       submenu: [
-        { path: '/airdrop-create', name: 'Airdrop Create', icon: <Plus size={14} /> },
-        { path: '/airdrop-history', name: 'Airdrop History', icon: <History size={14} /> },
+        { path: '/airdrop-create', name: t('nav_airdrop_create'), icon: <Plus size={14} /> },
+        { path: '/airdrop-history', name: t('nav_airdrop_history'), icon: <History size={14} /> },
       ]
     },
     { 
-      name: 'Service Center', 
+      name: t('nav_service_center'), 
       icon: <Headset size={16} />,
       id: 'service',
       submenu: [
-        { path: '/notices', name: 'Notice', icon: <Megaphone size={14} /> },
-        { path: '/faqs', name: 'Faq List', icon: <HelpCircle size={14} /> },
+        { path: '/notices', name: t('nav_notice'), icon: <Megaphone size={14} /> },
+        { path: '/faqs', name: t('nav_faq_list'), icon: <HelpCircle size={14} /> },
       ]
     },
     { 
       path: '/kyc-details', 
-      name: 'KYC Details', 
+      name: t('nav_kyc_details'), 
       icon: <FileText size={16} /> 
     },
     { 
       path: '/login-logs', 
-      name: 'Users Login Logs', 
+      name: t('nav_login_logs'), 
       icon: <Activity size={16} /> 
     },
     { 
       path: '/profile', 
-      name: 'My Profile', 
+      name: t('nav_my_profile'), 
       icon: <User size={16} /> 
     },
   ];
 
   return (
     <aside className={`
-      fixed lg:static inset-y-0 left-0 w-[260px] bg-panel border-r border-border-custom flex flex-col z-[60] transition-transform duration-300 ease-in-out
+      fixed lg:static inset-y-0 left-0 w-[290px] bg-panel border-r border-border-custom flex flex-col z-[60] transition-transform duration-300 ease-in-out
       ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
     `}>
       <div className="h-16 flex items-center justify-between px-6 border-b border-border-custom bg-panel-solid/50">
@@ -107,19 +109,6 @@ const Sidebar = ({ isOpen, onClose }) => {
       </div>
 
       <div className="flex-1 py-6 px-3 space-y-1 overflow-y-auto scrollbar-hide">
-        {/* Dashboard Link always visible */}
-        {/* <NavLink 
-          to="/dashboard" 
-          className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-bold text-[10px] uppercase tracking-widest border ${
-            isActive 
-              ? 'text-white border-primary/20 bg-gradient-to-r from-primary via-primary/[0.05] to-transparent shadow-sm shadow-primary/5' 
-              : 'text-text-secondary hover:text-text-main hover:bg-panel-hover border-transparent'
-          }`}
-        >
-          <div className="opacity-100"><TrendingUp size={16} /></div>
-          Dashboard
-        </NavLink> */}
-
         {menuItems.map((item) => {
           if (item.submenu) {
             const isOpen = openSubmenu === item.id;
@@ -129,7 +118,7 @@ const Sidebar = ({ isOpen, onClose }) => {
               <div key={item.id} className="space-y-1">
                 <button
                   onClick={() => setOpenSubmenu(isOpen ? null : item.id)}
-                  className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all font-bold text-[10px] uppercase tracking-widest border border-transparent ${
+                  className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all font-bold text-[12px] uppercase tracking-widest border border-transparent ${
                     isAnyChildActive ? 'text-primary' : 'text-text-secondary hover:text-text-main hover:bg-panel-hover'
                   }`}
                 >
@@ -149,7 +138,7 @@ const Sidebar = ({ isOpen, onClose }) => {
                           key={sub.path} 
                           to={sub.path} 
                           onClick={() => { if(window.innerWidth < 1024) onClose(); }}
-                          className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg transition-all font-bold text-[10px] uppercase tracking-widest ${
+                          className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg transition-all font-bold text-[12px] uppercase tracking-widest ${
                             isActive 
                               ? 'text-primary bg-primary/5' 
                               : 'text-text-muted hover:text-text-main hover:bg-panel-hover'
@@ -172,7 +161,7 @@ const Sidebar = ({ isOpen, onClose }) => {
               key={item.path} 
               to={item.path} 
               onClick={() => { if(window.innerWidth < 1024) onClose(); }}
-              className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-bold text-[10px] uppercase tracking-widest ${
+              className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-bold text-[12px] uppercase tracking-widest ${
                 isActive 
                   ? 'text-white bg-zinc-400 shadow-sm shadow-primary/5' 
                   : 'text-text-secondary hover:text-text-main hover:bg-panel-hover'
@@ -189,7 +178,7 @@ const Sidebar = ({ isOpen, onClose }) => {
         <button 
           onClick={() => {
             localStorage.removeItem('isLoggedIn');
-            toast.success('Logged out successfully');
+            toast.success(t('toast_logoutSuccess'));
             setTimeout(() => {
                 window.location.href = '/login';
             }, 500);
@@ -197,7 +186,7 @@ const Sidebar = ({ isOpen, onClose }) => {
           className="w-full flex items-center justify-center gap-3 py-3 bg-panel border border-border-custom text-[10px] font-black uppercase tracking-[2px] text-danger hover:bg-danger hover:text-white rounded-xl transition-all shadow-sm"
         >
           <LogOut size={16} />
-          Sign Out
+          {t('nav_signOut')}
         </button>
       </div>
     </aside>

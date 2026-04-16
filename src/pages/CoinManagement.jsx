@@ -1,7 +1,9 @@
 import React from 'react';
 import { Coins, Search, Filter, Plus, TrendingUp } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const CoinManagement = () => {
+  const { t } = useLanguage();
   const coins = [
     { name: 'Bitcoin', symbol: 'BTC', price: '$64,230.50', change: '+2.4%', status: 'Listed' },
     { name: 'Ethereum', symbol: 'ETH', price: '$3,450.20', change: '-1.2%', status: 'Listed' },
@@ -12,12 +14,12 @@ const CoinManagement = () => {
     <div className="animate-enter space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-text-main tracking-tight">Coin Management</h2>
-          <p className="text-xs text-text-muted font-medium">Manage assets and market listing settings</p>
+          <h2 className="text-2xl font-bold text-text-main tracking-tight">{t('nav_coin_management')}</h2>
+          <p className="text-xs text-text-muted font-medium">{t('nav_coin_management_subtitle')}</p>
         </div>
         <div className="flex gap-2">
             <button className="px-5 py-2 bg-primary text-white rounded-xl text-xs font-bold shadow-md shadow-primary/20 hover:opacity-90 transition-all flex items-center gap-2">
-                <Plus size={14} /> Add New Asset
+                <Plus size={14} /> {t('btn_add_asset')}
             </button>
         </div>
       </div>
@@ -30,7 +32,7 @@ const CoinManagement = () => {
                 {coin.symbol[0]}
               </div>
               <span className="text-[10px] font-black px-2 py-1 bg-emerald-500/10 text-emerald-500 rounded-lg border border-emerald-500/20 uppercase tracking-widest leading-none">
-                {coin.status}
+                {t('status_listed')}
               </span>
             </div>
             <div>

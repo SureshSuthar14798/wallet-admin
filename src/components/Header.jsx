@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Bell, Search, UserCircle, Sun, Moon, LogOut, Menu } from 'lucide-react';
+import { Bell, Search, UserCircle, Sun, Moon, LogOut, Menu, Languages } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { useLanguage } from '../context/LanguageContext';
 
 const Header = ({ onMenuClick }) => {
   const navigate = useNavigate();
+  const { lang, setLang, t } = useLanguage();
   const [isDark, setIsDark] = useState(true);
   const [showNotifications, setShowNotifications] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
@@ -45,7 +47,7 @@ const Header = ({ onMenuClick }) => {
 
   const handleLogout = () => {
     localStorage.removeItem('isLoggedIn');
-    toast.success('Logged out successfully');
+    toast.success(t('toast_logoutSuccess') || 'Logged out successfully');
     setTimeout(() => {
       window.location.href = '/login';
     }, 500);
@@ -60,18 +62,26 @@ const Header = ({ onMenuClick }) => {
         >
           <Menu size={20} />
         </button>
-        {/* <div className="relative w-full max-w-[280px] group hidden sm:block">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted group-focus-within:text-primary transition-colors" size={16} />
-          <input 
-            type="text" 
-            placeholder="Search parameters..." 
-            className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl pl-10 pr-4 py-2 text-[11px] font-medium focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-text-muted/40"
-          />
-        </div> */}
       </div>
 
       <div className="flex items-center gap-3">
-         <div className="flex items-center gap-1 p-1 bg-inputBg rounded-xl border border-border-custom">
+         {/* Language Selector */}
+         <div className="flex items-center gap-1 p-1 bg-inputBg rounded-xl border border-border-custom px-1.5 h-10 shadow-inner">
+            <button 
+                onClick={() => setLang('ko')}
+                className={`px-2 py-1 rounded-lg text-[10px] font-black transition-all ${lang === 'ko' ? 'bg-panel-solid shadow-sm text-primary border border-border-custom scale-105' : 'text-text-muted hover:text-text-main'}`}
+            >
+                KO
+            </button>
+            <button 
+                onClick={() => setLang('en')}
+                className={`px-2 py-1 rounded-lg text-[10px] font-black transition-all ${lang === 'en' ? 'bg-panel-solid shadow-sm text-primary border border-border-custom scale-105' : 'text-text-muted hover:text-text-main'}`}
+            >
+                EN
+            </button>
+         </div>
+
+         <div className="flex items-center gap-1 p-1 bg-inputBg rounded-xl border border-border-custom h-10 shadow-inner">
             <button 
                 onClick={toggleTheme} 
                 className={`p-1.5 rounded-lg transition-all ${!isDark ? 'bg-panel-solid shadow-sm text-primary border border-border-custom' : 'text-text-muted hover:text-text-main'}`}
@@ -98,8 +108,8 @@ const Header = ({ onMenuClick }) => {
              {showNotifications && (
                  <div className="absolute right-0 mt-2 w-72 bg-panel border border-border-custom rounded-2xl shadow-xl z-50 overflow-hidden animate-scale-in transform origin-top-right">
                      <div className="px-5 py-4 border-b border-border-custom flex justify-between items-center bg-inputBg/30">
-                         <h3 className="text-sm font-bold text-text-main tracking-tight">Notifications</h3>
-                         <span className="text-[10px] font-black text-primary uppercase tracking-widest cursor-pointer hover:opacity-80 transition-opacity">Mark all read</span>
+                         <h3 className="text-sm font-bold text-text-main tracking-tight">{t('nav_notifications')}</h3>
+                         <span className="text-[10px] font-black text-primary uppercase tracking-widest cursor-pointer hover:opacity-80 transition-opacity">{t('notif_mark_all_read')}</span>
                      </div>
                      <div className="max-h-80 overflow-y-auto scrollbar-hide flex flex-col">
                         {notifications.map(n => (
@@ -112,9 +122,6 @@ const Header = ({ onMenuClick }) => {
                             </div>
                         ))}
                      </div>
-                     <div className="p-3 border-t border-border-custom bg-inputBg/30 text-center">
-                         <button className="text-[10px] font-black text-text-muted uppercase tracking-widest hover:text-primary transition-colors py-1 px-4 rounded-lg">View All Notifications</button>
-                     </div>
                  </div>
              )}
          </div>
@@ -125,7 +132,7 @@ const Header = ({ onMenuClick }) => {
             <div className="text-right hidden sm:block">
               <div className="text-xs font-bold text-text-main leading-tight group-hover:text-primary transition-colors">Admin_Alpha</div>
               <div className="text-[10px] font-black text-success uppercase tracking-widest flex items-center justify-end gap-1">
-                <div className="w-1 h-1 rounded-full bg-success"></div> Online
+                <div className="w-1 h-1 rounded-full bg-success"></div> {lang === 'ko' ? '온라인' : 'Online'}
               </div>
             </div>
             <div className="w-9 h-9 border border-border-custom rounded-xl overflow-hidden shadow-sm group-active:scale-95 transition-all bg-inputBg flex items-center justify-center">
@@ -139,7 +146,7 @@ const Header = ({ onMenuClick }) => {
                             onClick={() => navigate('/profile')}
                             className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-bold text-text-secondary hover:text-text-main hover:bg-inputBg transition-all"
                         >
-                            <UserCircle size={18} /> View Profile
+                            <UserCircle size={18} /> {t('profile_edit')}
                         </button>
                         <div className="h-px bg-border-custom my-1 mx-2"></div>
                         <button 
@@ -147,7 +154,7 @@ const Header = ({ onMenuClick }) => {
                             className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-bold text-danger hover:bg-danger hover:text-white transition-all w-full"
                         >
                             <LogOut size={18} />
-                            Logout
+                            {t('nav_signOut')}
                         </button>
                      </div>
                  </div>

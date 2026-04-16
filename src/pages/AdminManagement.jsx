@@ -14,8 +14,10 @@ import {
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const AdminManagement = () => {
+  const { t } = useLanguage();
   const [dateRange, setDateRange] = useState({ start: '', end: '' });
   
   const mockAdmins = [
@@ -33,10 +35,10 @@ const AdminManagement = () => {
   ];
 
   const stats = [
-    { label: 'Total Admins', value: '12', icon: Shield, color: 'text-primary' },
-    { label: 'Active Now', value: '4', icon: Activity, color: 'text-emerald-500' },
-    { label: 'Pending Access', value: '0', icon: Users, color: 'text-amber-500' },
-    { label: 'System Healthy', value: '100%', icon: CheckCircle, color: 'text-blue-500' },
+    { label: t('stat_total_admins'), value: '12', icon: Shield, color: 'text-primary' },
+    { label: t('stat_active_now'), value: '4', icon: Activity, color: 'text-emerald-500' },
+    { label: t('stat_pending_access'), value: '0', icon: Users, color: 'text-amber-500' },
+    { label: t('stat_system_healthy'), value: '100%', icon: CheckCircle, color: 'text-blue-500' },
   ];
 
   return (
@@ -44,15 +46,19 @@ const AdminManagement = () => {
       {/* Premium Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div className="space-y-1">
-            <h2 className="text-3xl font-black text-text-main tracking-tight bg-gradient-to-r from-text-main to-text-muted bg-clip-text">Admin Management</h2>
-            <p className="text-sm text-text-muted font-medium">Manage administrative access and system permissions</p>
+            <h2 className="text-3xl font-black text-text-main tracking-tight bg-gradient-to-r from-text-main to-text-muted bg-clip-text">
+                {t('admin_management_title')}
+            </h2>
+            <p className="text-sm text-text-muted font-medium">
+                {t('admin_management_subtitle')}
+            </p>
         </div>
         <Link 
           to="/admin-registration" 
           className="group relative px-4 py-2 sm:px-6 sm:py-3 bg-primary text-white rounded-2xl text-[10px] sm:text-xs font-bold shadow-xl shadow-primary/30 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all flex items-center gap-2 sm:gap-3 overflow-hidden shrink-0"
         >
             <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-            <UserPlus size={16} /> <span className="hidden xs:inline">Admin Registration</span><span className="xs:hidden">Add Admin</span>
+            <UserPlus size={16} /> <span className="hidden xs:inline">{t('admin_registration_button')}</span><span className="xs:hidden">{t('admin_registration_button')}</span>
         </Link>
       </div>
 
@@ -80,7 +86,9 @@ const AdminManagement = () => {
         <div className="relative bg-panel rounded-[26px] p-6 space-y-6">
             <div className="flex flex-col lg:flex-row gap-6">
                 <div className="w-full lg:flex-1 space-y-3">
-                    <label className="text-[10px] font-black text-text-muted uppercase tracking-[0.2em] ml-1">Registration Timeline</label>
+                    <label className="text-[10px] font-black text-text-muted uppercase tracking-[0.2em] ml-1">
+                        {t('filter_registration_timeline')}
+                    </label>
                     <div className="flex flex-col sm:flex-row items-center gap-2">
                         <input type="date" className="w-full sm:flex-1 bg-inputBg border border-border-custom text-text-main rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all" />
                         <span className="text-text-muted font-bold hidden sm:inline">to</span>
@@ -89,13 +97,15 @@ const AdminManagement = () => {
                 </div>
 
                 <div className="w-full lg:flex-[1.5] space-y-3">
-                     <label className="text-[10px] font-black text-text-muted uppercase tracking-[0.2em] ml-1">Advanced Search</label>
+                     <label className="text-[10px] font-black text-text-muted uppercase tracking-[0.2em] ml-1">
+                        {t('filter_advanced_search')}
+                     </label>
                      <div className="flex flex-col sm:flex-row gap-2">
                         <div className="grid grid-cols-2 sm:flex gap-2">
                             <select className="bg-inputBg border border-border-custom text-text-main rounded-xl px-4 py-2.5 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all cursor-pointer">
-                                <option>Status: All</option>
-                                <option>Active</option>
-                                <option>Inactive</option>
+                                <option>{t('common_status')}: {t('common_total')}</option>
+                                <option>{t('common_active')}</option>
+                                <option>{t('common_inactive')}</option>
                             </select>
                             <button className="sm:hidden p-2.5 bg-inputBg border border-border-custom text-text-muted rounded-xl hover:text-text-main transition-all flex items-center justify-center">
                                 <RotateCcw size={16} />
@@ -105,13 +115,13 @@ const AdminManagement = () => {
                             <Search size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted" />
                             <input 
                                 type="text" 
-                                placeholder="Search by ID, Name or Mobile..." 
+                                placeholder={t('search_placeholder_admin')}
                                 className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl pl-11 pr-4 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all shadow-inner"
                             />
                         </div>
                         <div className="flex gap-2">
                             <button className="flex-1 sm:flex-initial px-6 py-2.5 bg-primary text-white rounded-xl text-xs font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all flex items-center justify-center gap-2">
-                                Go
+                                {t('common_search')}
                             </button>
                             <button className="hidden sm:flex p-2.5 bg-inputBg border border-border-custom text-text-muted rounded-xl hover:text-text-main transition-all">
                                 <RotateCcw size={16} />
@@ -126,9 +136,11 @@ const AdminManagement = () => {
       {/* Premium Table Container */}
       <div className="bg-panel border border-border-custom rounded-[32px] shadow-2xl overflow-hidden relative group">
         <div className="p-6 border-b border-border-custom flex justify-between items-center bg-inputBg/20">
-            <h3 className="text-lg font-black text-text-main tracking-tight">Access Directory</h3>
+            <h3 className="text-lg font-black text-text-main tracking-tight">
+                {t('table_access_directory')}
+            </h3>
             <span className="text-[10px] font-black text-text-muted uppercase tracking-widest bg-inputBg px-3 py-1.5 rounded-full shadow-inner border border-border-custom">
-                {mockAdmins.length} Total Records
+                {mockAdmins.length} {t('common_total')} {t('common_list')}
             </span>
         </div>
         
@@ -136,13 +148,13 @@ const AdminManagement = () => {
           <table className="w-full text-left min-w-[1100px]">
             <thead>
               <tr className="bg-inputBg/40">
-                <th className="py-5 px-6 text-[10px] font-black text-text-muted uppercase tracking-widest border-b border-border-custom">Admin ID</th>
-                <th className="py-5 px-6 text-[10px] font-black text-text-muted uppercase tracking-widest border-b border-border-custom">Contact</th>
-                <th className="py-5 px-6 text-[10px] font-black text-text-muted uppercase tracking-widest border-b border-border-custom">Full Name</th>
-                <th className="py-5 px-6 text-[10px] font-black text-text-muted uppercase tracking-widest border-b border-border-custom text-center">Part</th>
-                <th className="py-5 px-6 text-[10px] font-black text-text-muted uppercase tracking-widest border-b border-border-custom">Status</th>
-                <th className="py-5 px-6 text-[10px] font-black text-text-muted uppercase tracking-widest border-b border-border-custom">Activity History</th>
-                <th className="py-5 px-6 text-[10px] font-black text-text-muted uppercase tracking-widest border-b border-border-custom text-right">Actions</th>
+                <th className="py-5 px-6 text-[10px] font-black text-text-muted uppercase tracking-widest border-b border-border-custom">{t('col_admin_id')}</th>
+                <th className="py-5 px-6 text-[10px] font-black text-text-muted uppercase tracking-widest border-b border-border-custom">{t('col_contact')}</th>
+                <th className="py-5 px-6 text-[10px] font-black text-text-muted uppercase tracking-widest border-b border-border-custom">{t('col_full_name')}</th>
+                <th className="py-5 px-6 text-[10px] font-black text-text-muted uppercase tracking-widest border-b border-border-custom text-center">{t('col_part')}</th>
+                <th className="py-5 px-6 text-[10px] font-black text-text-muted uppercase tracking-widest border-b border-border-custom">{t('common_status')}</th>
+                <th className="py-5 px-6 text-[10px] font-black text-text-muted uppercase tracking-widest border-b border-border-custom">{t('col_activity_history')}</th>
+                <th className="py-5 px-6 text-[10px] font-black text-text-muted uppercase tracking-widest border-b border-border-custom text-right">{t('common_actions')}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border-custom/50">
@@ -167,7 +179,9 @@ const AdminManagement = () => {
                     <td className="py-5 px-6 text-xs font-bold text-text-main">
                         <div className="flex items-center gap-2">
                             <div className={`w-2 h-2 rounded-full ${admin.status === 'Active' ? 'bg-emerald-500 animate-pulse' : 'bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.4)]'}`}></div>
-                            <span className={admin.status === 'Active' ? 'text-emerald-500' : 'text-rose-500'}>{admin.status}</span>
+                            <span className={admin.status === 'Active' ? 'text-emerald-500' : 'text-rose-500'}>
+                                {admin.status === 'Active' ? t('common_active') : t('common_inactive')}
+                            </span>
                         </div>
                     </td>
                     <td className="py-5 px-6">
@@ -184,7 +198,7 @@ const AdminManagement = () => {
                     </td>
                     <td className="py-5 px-6 text-right">
                       <Link to={`/admin-edit/${admin.pk}`} className="inline-flex items-center gap-2 px-4 py-2 bg-inputBg border border-border-custom text-text-main rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-primary hover:text-white hover:border-primary transition-all group/edit">
-                          Details <ArrowRight size={12} className="group-hover/edit:translate-x-1 transition-transform" />
+                          {t('common_edit')} <ArrowRight size={12} className="group-hover/edit:translate-x-1 transition-transform" />
                       </Link>
                     </td>
                   </tr>
@@ -197,8 +211,8 @@ const AdminManagement = () => {
                         <Database size={40} />
                       </div>
                       <div className="space-y-1">
-                        <h4 className="text-sm font-black text-text-muted uppercase tracking-normal">No Administration Data Found</h4>
-                        <p className="text-[10px] font-medium text-text-muted/60">Try adjusting your filters or search keywords</p>
+                        <h4 className="text-sm font-black text-text-muted uppercase tracking-normal">{t('common_no_data')}</h4>
+                        <p className="text-[10px] font-medium text-text-muted/60">{t('keyword_placeholder')}</p>
                       </div>
                     </div>
                   </td>
@@ -210,13 +224,17 @@ const AdminManagement = () => {
 
         {/* Premium Pagination */}
         <div className="p-8 flex justify-center items-center gap-4 border-t border-border-custom bg-gradient-to-b from-transparent to-inputBg/10">
-            <button className="w-10 h-10 border border-border-custom rounded-2xl flex items-center justify-center text-text-muted hover:bg-panel-hover transition-all opacity-50"><ChevronLeft size={18} /></button>
+            <button className="w-10 h-10 border border-border-custom rounded-2xl flex items-center justify-center text-text-muted hover:bg-panel-hover transition-all opacity-50">
+                <ChevronLeft size={18} />
+            </button>
             <div className="flex gap-2">
                 {[1].map(p => (
                     <button key={p} className={`w-10 h-10 rounded-2xl flex items-center justify-center text-xs font-black transition-all ${p === 1 ? 'bg-primary text-white shadow-lg shadow-primary/20 scale-110' : 'text-text-muted hover:bg-panel-hover'}`}>{p}</button>
                 ))}
             </div>
-            <button className="w-10 h-10 border border-border-custom rounded-2xl flex items-center justify-center text-text-muted hover:bg-panel-hover transition-all opacity-50"><ChevronRight size={18} /></button>
+            <button className="w-10 h-10 border border-border-custom rounded-2xl flex items-center justify-center text-text-muted hover:bg-panel-hover transition-all opacity-50">
+                <ChevronRight size={18} />
+            </button>
         </div>
       </div>
     </div>

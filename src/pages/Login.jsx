@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Shield, Eye, EyeOff, Lock, User, Wallet } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Shield, Eye, EyeOff, Lock, User, Wallet, Sun, Moon } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -10,6 +10,11 @@ const Login = () => {
     userId: '',
     password: ''
   });
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,16 +30,16 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-bg-dark flex items-center justify-center p-4 relative overflow-hidden">
+    <div className="min-h-screen bg-main flex items-center justify-center p-4 relative overflow-hidden transition-colors duration-300">
       {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px] -mr-48 -mt-48"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] -ml-48 -mb-48"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px] -mr-48 -mt-48 pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] -ml-48 -mb-48 pointer-events-none"></div>
       
       <div className="w-full max-w-md animate-enter">
           <div className="bg-panel border border-border-custom rounded-[32px] p-8 sm:p-10 shadow-2xl relative overflow-hidden group">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
               
-              <div className="flex flex-col items-center mb-10">
+              <div className="flex flex-col items-center mb-5">
                   <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center shadow-2xl shadow-primary/40 mb-6 group-hover:scale-110 transition-transform duration-500">
                       <Wallet size={32} className="text-white" />
                   </div>
@@ -90,7 +95,7 @@ const Login = () => {
                   </button>
               </form>
 
-              <div className="mt-10 pt-8 border-t border-border-custom flex flex-col items-center gap-4">
+              <div className="mt-5 pt-5 border-t border-border-custom flex flex-col items-center gap-4">
                   <p className="text-[10px] font-bold text-text-muted text-center uppercase tracking-widest leading-relaxed">
                       {t('login_restricted')}<br/>
                       <span className="opacity-50">{t('login_personnel_only')}</span>

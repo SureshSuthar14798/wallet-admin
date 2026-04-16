@@ -17,7 +17,7 @@ const Profile = () => {
       <div className="bg-panel border border-border-custom rounded-[24px] p-10 shadow-sm relative overflow-hidden">
         <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
         
-        <form className="space-y-10 relative z-10">
+        <form className="space-y-5 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
             
             {/* Admin ID - Read Only */}
@@ -88,10 +88,9 @@ const Profile = () => {
                 className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-4 py-3 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
               />
             </div>
-
           </div>
 
-          <div className="pt-6 border-t border-border-custom">
+          <div className="pt-4 border-t border-border-custom">
             <button className="px-10 py-3 bg-primary text-white rounded-xl text-xs font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all flex items-center gap-2">
                 <Save size={16} /> {t('profile_save_btn')}
             </button>
@@ -99,8 +98,8 @@ const Profile = () => {
         </form>
       </div>
 
-      <div className="bg-primary/5 border border-primary rounded-[20px] p-6 flex gap-4 items-start">
-        <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary shrink-0">
+      <div className="bg-panel rounded-[20px] p-6 flex gap-4 items-start">
+        <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white shrink-0">
             <Shield size={20} />
         </div>
         <div>

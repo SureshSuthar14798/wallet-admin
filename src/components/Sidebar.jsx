@@ -29,8 +29,8 @@ import { useLanguage } from '../context/LanguageContext';
 const Sidebar = ({ isOpen, onClose }) => {
   const { t } = useLanguage();
   const location = useLocation();
-  const [openSubmenu, setOpenSubmenu] = useState('member'); // Default open or based on location
-
+  
+  // Define menu items first so they can be used for initial state calculation
   const menuItems = [
     { 
       path: '/admin-management', 
@@ -44,6 +44,8 @@ const Sidebar = ({ isOpen, onClose }) => {
       submenu: [
         { path: '/members', name: t('nav_member_list'), icon: <List size={14} /> },
         { path: '/avatars', name: t('nav_avatar_list'), icon: <ImageIcon size={14} /> },
+        { path: '/edit-member', name: t('nav_member_edit'), icon: <UserCog size={14} />, hidden: true },
+        { path: '/avatar-registration', name: t('nav_avatar_reg'), icon: <Plus size={14} />, hidden: true },
       ]
     },
     { 
@@ -54,6 +56,7 @@ const Sidebar = ({ isOpen, onClose }) => {
         { path: '/coin-transactions', name: t('nav_coin_transaction_list'), icon: <List size={14} /> },
         { path: '/coin-settings', name: t('nav_coin_setting'), icon: <Settings size={14} /> },
         { path: '/main-wallet', name: t('nav_main_wallet'), icon: <Wallet size={14} /> },
+        { path: '/coin-management', name: t('coin_management'), icon: <TrendingUp size={14} />, hidden: true },
       ]
     },
     { 
@@ -72,6 +75,7 @@ const Sidebar = ({ isOpen, onClose }) => {
       submenu: [
         { path: '/notices', name: t('nav_notice'), icon: <Megaphone size={14} /> },
         { path: '/faqs', name: t('nav_faq_list'), icon: <HelpCircle size={14} /> },
+        { path: '/service-center', name: t('service_center'), icon: <Settings size={14} />, hidden: true },
       ]
     },
     { 
@@ -90,6 +94,28 @@ const Sidebar = ({ isOpen, onClose }) => {
       icon: <User size={16} /> 
     },
   ];
+
+  const [openSubmenu, setOpenSubmenu] = useState(() => {
+    // Initial calculation to open the correct submenu on refresh
+    const activeItem = menuItems.find(item => 
+      item.submenu && item.submenu.some(sub => 
+        location.pathname.startsWith(sub.path)
+      )
+    );
+    return activeItem ? activeItem.id : null;
+  });
+
+  // Also update when pathname changes if it hits a different submenu
+  React.useEffect(() => {
+    const activeItem = menuItems.find(item => 
+      item.submenu && item.submenu.some(sub => 
+        location.pathname.startsWith(sub.path)
+      )
+    );
+    if (activeItem) {
+      setOpenSubmenu(activeItem.id);
+    }
+  }, [location.pathname]);
 
   return (
     <aside className={`
@@ -112,7 +138,9 @@ const Sidebar = ({ isOpen, onClose }) => {
         {menuItems.map((item) => {
           if (item.submenu) {
             const isOpen = openSubmenu === item.id;
-            const isAnyChildActive = item.submenu.some(sub => location.pathname === sub.path);
+            const isAnyChildActive = item.submenu.some(sub => 
+              location.pathname === sub.path || location.pathname.startsWith(sub.path + '/')
+            );
 
             return (
               <div key={item.id} className="space-y-1">
@@ -131,8 +159,8 @@ const Sidebar = ({ isOpen, onClose }) => {
                 
                 {isOpen && (
                   <div className="ml-[25px] space-y-1 border-l border-border-custom transition-all">
-                    {item.submenu.map((sub) => {
-                      const isActive = location.pathname === sub.path;
+                    {item.submenu.filter(sub => !sub.hidden).map((sub) => {
+                      const isActive = location.pathname === sub.path || location.pathname.startsWith(sub.path + '/');
                       return (
                         <NavLink 
                           key={sub.path} 

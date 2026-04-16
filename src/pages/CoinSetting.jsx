@@ -28,7 +28,7 @@ const CoinSetting = () => {
               <Info size={14} className="text-text-muted opacity-50 group-hover:opacity-100 transition-opacity" />
             </div>
 
-            <div className="p-5 sm:p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-10">
+            <div className="p-5 sm:p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
               {/* Row 1: Fees */}
               <div className="space-y-1 lg:space-y-3">
                 <label className="text-xs font-black text-text-muted uppercase tracking-widest flex items-center gap-2">

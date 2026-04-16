@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import AdminLayout from './layouts/AdminLayout';
 import Loader from './components/Loader';
@@ -33,6 +33,20 @@ const CoinSetting = lazy(() => import('./pages/CoinSetting'));
 const MainWallet = lazy(() => import('./pages/MainWallet'));
 
 function App() {
+  const [initialLoading, setInitialLoading] = useState(true);
+
+  useEffect(() => {
+    // Artificial delay to show the professional loader on initial boot/refresh
+    const timer = setTimeout(() => {
+      setInitialLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (initialLoading) {
+    return <Loader />;
+  }
+
   return (
     <BrowserRouter>
       <Toaster position="top-right" reverseOrder={false} />

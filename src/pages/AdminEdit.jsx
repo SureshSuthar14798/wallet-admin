@@ -128,7 +128,7 @@ const AdminEdit = () => {
 
         </div>
 
-        <div className="mt-10 lg:mt-12 flex flex-col sm:flex-row gap-3">
+        <div className="mt-5 flex flex-col sm:flex-row gap-3">
           <button className="w-full sm:w-auto px-10 py-3.5 bg-primary text-white rounded-xl text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all flex items-center justify-center gap-2">
             <Save size={16} /> {t('common_save')}
           </button>

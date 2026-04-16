@@ -1,14 +1,6 @@
-import React from 'react';
 import { 
-  Activity, 
   Search, 
   RotateCcw, 
-  ChevronLeft, 
-  ChevronRight,
-  Monitor,
-  Clock,
-  User,
-  Shield
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -120,7 +112,7 @@ const LoginLogs = () => {
                   <td className="py-4 px-4 text-xs font-medium text-text-muted font-mono">{log.lastSeen}</td>
                   <td className="py-4 px-4 text-center">
                     <span className={`px-2 py-0.5 rounded text-xs font-black uppercase tracking-widest ${
-                        log.type === 'Admin' ? 'bg-primary/10 text-primary border border-primary/20' : 'bg-secondary/10 text-secondary border border-secondary/20'
+                        log.type === 'Admin' ? 'bg-primary/10 text-primary border border-primary' : 'bg-secondary/10 text-secondary border border-secondary'
                     }`}>
                         {log.type}
                     </span>

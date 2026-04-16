@@ -42,7 +42,7 @@ const AdminManagement = () => {
   ];
 
   return (
-    <div className="animate-enter space-y-8 pb-12">
+    <div className="animate-enter space-y-4 lg:space-y-8 pb-4 lg:pb-12">
       {/* Premium Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div className="space-y-1">
@@ -55,7 +55,7 @@ const AdminManagement = () => {
         </div>
         <Link 
           to="/admin-registration" 
-          className="group relative px-4 py-2 sm:px-6 sm:py-3 bg-primary text-white rounded-2xl text-[10px] sm:text-xs font-bold shadow-xl shadow-primary/30 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all flex items-center gap-2 sm:gap-3 overflow-hidden shrink-0"
+          className="group relative px-4 py-2 sm:px-6 sm:py-3 bg-primary text-white rounded-2xl text-xs sm:text-xs font-bold shadow-xl shadow-primary/30 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all flex items-center gap-2 sm:gap-3 overflow-hidden shrink-0"
         >
             <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
             <UserPlus size={16} /> <span className="hidden xs:inline">{t('admin_registration_button')}</span><span className="xs:hidden">{t('admin_registration_button')}</span>
@@ -63,18 +63,18 @@ const AdminManagement = () => {
       </div>
 
       {/* Modern Stats Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6">
         {stats.map((stat, i) => (
-            <div key={i} className="bg-panel border border-border-custom p-6 rounded-[24px] shadow-sm hover:shadow-md transition-all group">
+            <div key={i} className="bg-panel border border-border-custom p-4 lg:p-6 rounded-[24px] shadow-sm hover:shadow-md transition-all group">
                 <div className="flex justify-between items-start mb-4">
                     <div className={`p-3 rounded-2xl bg-inputBg border border-border-custom transition-transform group-hover:scale-110 duration-500`}>
                         <stat.icon size={20} className={stat.color} />
                     </div>
-                    <span className="text-[10px] font-black text-text-muted uppercase tracking-widest bg-inputBg px-2 py-1 rounded-lg">Live</span>
+                    <span className="text-xs font-black text-text-muted uppercase tracking-widest bg-inputBg px-2 py-1 rounded-lg">Live</span>
                 </div>
                 <div>
-                    <div className="text-2xl font-black text-text-main leading-tight mb-1">{stat.value}</div>
-                    <div className="text-[10px] font-bold text-text-muted uppercase tracking-widest">{stat.label}</div>
+                    <div className="text-xl lg:text-2xl font-black text-text-main leading-tight mb-1">{stat.value}</div>
+                    <div className="text-xs font-bold text-text-muted uppercase tracking-widest">{stat.label}</div>
                 </div>
             </div>
         ))}
@@ -83,10 +83,10 @@ const AdminManagement = () => {
       {/* Advanced Filter Panel */}
       <div className="bg-panel border border-border-custom rounded-[28px] p-2 shadow-xl relative group">
         <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-[30px] blur opacity-0 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-        <div className="relative bg-panel rounded-[26px] p-6 space-y-6">
+        <div className="relative bg-panel rounded-[26px] p-3 lg:p-6 space-y-6">
             <div className="flex flex-col lg:flex-row gap-6">
                 <div className="w-full lg:flex-1 space-y-3">
-                    <label className="text-[10px] font-black text-text-muted uppercase tracking-[0.2em] ml-1">
+                    <label className="text-xs font-black text-text-muted uppercase tracking-[0.2em] ml-1">
                         {t('filter_registration_timeline')}
                     </label>
                     <div className="flex flex-col sm:flex-row items-center gap-2">
@@ -97,7 +97,7 @@ const AdminManagement = () => {
                 </div>
 
                 <div className="w-full lg:flex-[1.5] space-y-3">
-                     <label className="text-[10px] font-black text-text-muted uppercase tracking-[0.2em] ml-1">
+                     <label className="text-xs font-black text-text-muted uppercase tracking-[0.2em] ml-1">
                         {t('filter_advanced_search')}
                      </label>
                      <div className="flex flex-col sm:flex-row gap-2">
@@ -139,7 +139,7 @@ const AdminManagement = () => {
             <h3 className="text-lg font-black text-text-main tracking-tight">
                 {t('table_access_directory')}
             </h3>
-            <span className="text-[10px] font-black text-text-muted uppercase tracking-widest bg-inputBg px-3 py-1.5 rounded-full shadow-inner border border-border-custom">
+            <span className="text-xs font-black text-text-muted uppercase tracking-widest bg-inputBg px-3 py-1.5 rounded-full shadow-inner border border-border-custom">
                 {mockAdmins.length} {t('common_total')} {t('common_list')}
             </span>
         </div>
@@ -148,13 +148,13 @@ const AdminManagement = () => {
           <table className="w-full text-left min-w-[1100px]">
             <thead>
               <tr className="bg-inputBg/40">
-                <th className="py-5 px-6 text-[10px] font-black text-text-muted uppercase tracking-widest border-b border-border-custom">{t('col_admin_id')}</th>
-                <th className="py-5 px-6 text-[10px] font-black text-text-muted uppercase tracking-widest border-b border-border-custom">{t('col_contact')}</th>
-                <th className="py-5 px-6 text-[10px] font-black text-text-muted uppercase tracking-widest border-b border-border-custom">{t('col_full_name')}</th>
-                <th className="py-5 px-6 text-[10px] font-black text-text-muted uppercase tracking-widest border-b border-border-custom text-center">{t('col_part')}</th>
-                <th className="py-5 px-6 text-[10px] font-black text-text-muted uppercase tracking-widest border-b border-border-custom">{t('common_status')}</th>
-                <th className="py-5 px-6 text-[10px] font-black text-text-muted uppercase tracking-widest border-b border-border-custom">{t('col_activity_history')}</th>
-                <th className="py-5 px-6 text-[10px] font-black text-text-muted uppercase tracking-widest border-b border-border-custom text-right">{t('common_actions')}</th>
+                <th className="py-5 px-6 text-xs font-black text-text-muted uppercase tracking-widest border-b border-border-custom">{t('col_admin_id')}</th>
+                <th className="py-5 px-6 text-xs font-black text-text-muted uppercase tracking-widest border-b border-border-custom">{t('col_contact')}</th>
+                <th className="py-5 px-6 text-xs font-black text-text-muted uppercase tracking-widest border-b border-border-custom">{t('col_full_name')}</th>
+                <th className="py-5 px-6 text-xs font-black text-text-muted uppercase tracking-widest border-b border-border-custom text-center">{t('col_part')}</th>
+                <th className="py-5 px-6 text-xs font-black text-text-muted uppercase tracking-widest border-b border-border-custom">{t('common_status')}</th>
+                <th className="py-5 px-6 text-xs font-black text-text-muted uppercase tracking-widest border-b border-border-custom">{t('col_activity_history')}</th>
+                <th className="py-5 px-6 text-xs font-black text-text-muted uppercase tracking-widest border-b border-border-custom text-right">{t('common_actions')}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border-custom/50">
@@ -163,7 +163,7 @@ const AdminManagement = () => {
                   <tr key={admin.pk} className="hover:bg-inputBg/30 transition-all group/row">
                     <td className="py-5 px-6">
                         <div className="text-sm font-black text-text-main mb-0.5">{admin.email}</div>
-                        <div className="text-[10px] font-bold text-text-muted uppercase tracking-wide">PK: {admin.pk} <span className="mx-1">•</span> No: {admin.no}</div>
+                        <div className="text-xs font-bold text-text-muted uppercase tracking-wide">PK: {admin.pk} <span className="mx-1">•</span> No: {admin.no}</div>
                     </td>
                     <td className="py-5 px-6">
                         <div className="text-xs font-bold text-text-secondary font-mono tracking-tight">{admin.mobile}</div>
@@ -186,18 +186,18 @@ const AdminManagement = () => {
                     </td>
                     <td className="py-5 px-6">
                         <div className="space-y-1">
-                            <div className="flex items-center gap-1.5 text-[10px] font-bold text-text-muted">
+                            <div className="flex items-center gap-1.5 text-xs font-bold text-text-muted">
                                 <span className="uppercase tracking-widest">Login:</span>
                                 <span className="font-mono">{admin.lastLogin}</span>
                             </div>
-                            <div className="flex items-center gap-1.5 text-[10px] font-bold text-text-muted">
+                            <div className="flex items-center gap-1.5 text-xs font-bold text-text-muted">
                                 <span className="uppercase tracking-widest">Reg:</span>
                                 <span className="font-mono">{admin.regDate}</span>
                             </div>
                         </div>
                     </td>
                     <td className="py-5 px-6 text-right">
-                      <Link to={`/admin-edit/${admin.pk}`} className="inline-flex items-center gap-2 px-4 py-2 bg-inputBg border border-border-custom text-text-main rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-primary hover:text-white hover:border-primary transition-all group/edit">
+                      <Link to={`/admin-edit/${admin.pk}`} className="inline-flex items-center gap-2 px-4 py-2 bg-inputBg border border-border-custom text-text-main rounded-xl text-xs font-black uppercase tracking-widest hover:bg-primary hover:text-white hover:border-primary transition-all group/edit">
                           {t('common_edit')} <ArrowRight size={12} className="group-hover/edit:translate-x-1 transition-transform" />
                       </Link>
                     </td>
@@ -212,7 +212,7 @@ const AdminManagement = () => {
                       </div>
                       <div className="space-y-1">
                         <h4 className="text-sm font-black text-text-muted uppercase tracking-normal">{t('common_no_data')}</h4>
-                        <p className="text-[10px] font-medium text-text-muted/60">{t('keyword_placeholder')}</p>
+                        <p className="text-xs font-medium text-text-muted/60">{t('keyword_placeholder')}</p>
                       </div>
                     </div>
                   </td>

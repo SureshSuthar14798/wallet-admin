@@ -65,14 +65,14 @@ const MainWallet = () => {
           <h2 className="text-2xl font-black text-text-main tracking-tight bg-gradient-to-r from-text-main to-text-muted bg-clip-text">
             {t('wallet_main_title')}
           </h2>
-          <p className="text-[11px] text-text-muted font-medium italic opacity-80">
+          <p className="text-xs text-text-muted font-medium italic opacity-80">
             {t('wallet_liquidity_bridge')}
           </p>
         </div>
         <div className="flex items-center gap-2">
             <div className="px-3 py-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-lg flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
-                <span className="text-[9px] font-black text-emerald-500 uppercase tracking-widest">
+                <span className="text-xs font-black text-emerald-500 uppercase tracking-widest">
                   {t('wallet_live_nodes')}
                 </span>
             </div>
@@ -93,7 +93,7 @@ const MainWallet = () => {
                                 <Wallet size={18} />
                             </div>
                             <div>
-                                <div className="text-[9px] font-black uppercase tracking-widest opacity-70">
+                                <div className="text-xs font-black uppercase tracking-widest opacity-70">
                                   {t('wallet_internal_ledger')}
                                 </div>
                                 <div className="text-xs font-bold tracking-tight leading-none">
@@ -101,13 +101,13 @@ const MainWallet = () => {
                                 </div>
                             </div>
                         </div>
-                        <span className="px-2 py-1 bg-white/10 backdrop-blur-sm rounded-lg text-[9px] font-black uppercase border border-white/20 tracking-wider">
+                        <span className="px-2 py-1 bg-white/10 backdrop-blur-sm rounded-lg text-xs font-black uppercase border border-white/20 tracking-wider">
                           {t('wallet_active')}
                         </span>
                     </div>
 
                     <div>
-                        <div className="text-[9px] font-black uppercase tracking-[0.15em] opacity-60 mb-1">
+                        <div className="text-xs font-black uppercase tracking-[0.15em] opacity-60 mb-1">
                           {t('wallet_available_liquidity')}
                         </div>
                         <div className="flex items-baseline gap-2">
@@ -118,10 +118,10 @@ const MainWallet = () => {
 
                     <div className="pt-6 border-t border-white/10 flex items-center justify-between">
                         <div className="space-y-0.5">
-                            <div className="text-[9px] font-black uppercase tracking-widest opacity-60">
+                            <div className="text-xs font-black uppercase tracking-widest opacity-60">
                               {t('wallet_sync_frequency')}
                             </div>
-                            <div className="text-[11px] font-bold tracking-tight leading-none">
+                            <div className="text-xs font-bold tracking-tight leading-none">
                               {t('wallet_realtime_flow')}
                             </div>
                         </div>
@@ -132,11 +132,11 @@ const MainWallet = () => {
 
             <div className="bg-panel border border-border-custom rounded-[28px] p-6 space-y-4 shadow-sm">
                 <div className="space-y-3">
-                    <label className="text-[9px] font-black text-text-muted uppercase tracking-[0.15em] ml-1 flex items-center gap-2">
+                    <label className="text-xs font-black text-text-muted uppercase tracking-[0.15em] ml-1 flex items-center gap-2">
                         <ArrowDownLeft size={12} className="text-emerald-500" /> {t('wallet_receiving_address')}
                     </label>
                     <div className="p-3 bg-inputBg border border-border-custom rounded-xl relative group/addr">
-                        <div className="text-[10px] font-mono text-text-secondary break-all leading-relaxed mr-8">
+                        <div className="text-xs font-mono text-text-secondary break-all leading-relaxed mr-8">
                             {depositAddress}
                         </div>
                         <button 
@@ -148,7 +148,7 @@ const MainWallet = () => {
                     </div>
                     <div className="flex items-center gap-2 px-1">
                         <div className="w-1 h-1 rounded-full bg-primary/40"></div>
-                        <p className="text-[9px] text-text-muted font-medium opacity-60">
+                        <p className="text-xs text-text-muted font-medium opacity-60">
                           {t('wallet_node_direct', { coin: selectedCoin })}
                         </p>
                     </div>
@@ -161,19 +161,19 @@ const MainWallet = () => {
             <div className="bg-panel border border-border-custom rounded-[32px] p-1.5 shadow-xl relative group overflow-hidden">
                 <div className="absolute -inset-1 bg-gradient-to-r from-primary/5 to-blue-500/5 rounded-[34px] blur opacity-0 group-hover:opacity-100 transition duration-1000"></div>
                 
-                <div className="relative bg-panel rounded-[28px] p-6 sm:p-8 space-y-8">
+                <div className="relative bg-panel rounded-[28px] p-6 sm:p-8 space-y-5">
                     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                         <div className="space-y-0.5">
                             <h3 className="text-lg font-black text-text-main tracking-tight">
                               {t('wallet_withdrawal_hub')}
                             </h3>
-                            <p className="text-[9px] text-text-muted font-bold tracking-[0.1em] uppercase opacity-70">
+                            <p className="text-xs text-text-muted font-bold tracking-[0.1em] uppercase opacity-70">
                               {t('wallet_asset_outflow')}
                             </p>
                         </div>
                         
                         <div className="w-full sm:w-48 space-y-1.5 relative">
-                            <label className="text-[9px] font-black text-text-muted uppercase tracking-widest ml-1">
+                            <label className="text-xs font-black text-text-muted uppercase tracking-widest ml-1">
                               {t('wallet_coin_asset')}
                             </label>
                             
@@ -181,7 +181,7 @@ const MainWallet = () => {
                             <div className="relative">
                                 <button 
                                     onClick={() => setIsCoinDropdownOpen(!isCoinDropdownOpen)}
-                                    className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-4 py-2.5 text-[11px] font-black flex items-center justify-between hover:border-primary/40 transition-all shadow-inner"
+                                    className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-4 py-2.5 text-xs font-black flex items-center justify-between hover:border-primary/40 transition-all shadow-inner"
                                 >
                                     <div className="flex items-center gap-2.5">
                                         <div className={`w-5 h-5 rounded-lg ${selectedCoinData.color} flex items-center justify-center text-[8px] text-white`}>
@@ -205,12 +205,12 @@ const MainWallet = () => {
                                                     }}
                                                     className={`w-full px-4 py-3 text-left flex items-center gap-3 hover:bg-inputBg transition-colors ${selectedCoin === coin.id ? 'bg-inputBg' : ''}`}
                                                 >
-                                                    <div className={`w-6 h-6 rounded-lg ${coin.color} flex items-center justify-center text-[10px] text-white font-black`}>
+                                                    <div className={`w-6 h-6 rounded-lg ${coin.color} flex items-center justify-center text-xs text-white font-black`}>
                                                         {coin.id.substring(0, 1)}
                                                     </div>
                                                     <div className="flex flex-col">
-                                                        <span className="text-[11px] font-black text-text-main">{coin.name}</span>
-                                                        <span className="text-[9px] font-bold text-text-muted uppercase tracking-widest">
+                                                        <span className="text-xs font-black text-text-main">{coin.name}</span>
+                                                        <span className="text-xs font-bold text-text-muted uppercase tracking-widest">
                                                           {t('wallet_network_suffix', { coin: coin.id })}
                                                         </span>
                                                     </div>
@@ -228,7 +228,7 @@ const MainWallet = () => {
 
                     <div className="grid grid-cols-1 gap-5">
                         <div className="space-y-2">
-                            <label className="text-[9px] font-black text-text-muted uppercase tracking-[0.15em] ml-1 flex items-center gap-2">
+                            <label className="text-xs font-black text-text-muted uppercase tracking-[0.15em] ml-1 flex items-center gap-2">
                                 <ArrowUpRight size={12} className="text-primary" /> {t('wallet_destination_target')}
                             </label>
                             <input 
@@ -236,12 +236,12 @@ const MainWallet = () => {
                                 value={withdrawAddress}
                                 onChange={(e) => setWithdrawAddress(e.target.value)}
                                 placeholder={t('wallet_dest_placeholder')}
-                                className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-4 py-3.5 text-[11px] font-medium focus:outline-none focus:border-primary/40 transition-all shadow-inner placeholder:text-text-muted/30"
+                                className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-4 py-3.5 text-xs font-medium focus:outline-none focus:border-primary/40 transition-all shadow-inner placeholder:text-text-muted/30"
                             />
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-[9px] font-black text-text-muted uppercase tracking-[0.15em] ml-1 flex items-center gap-2">
+                            <label className="text-xs font-black text-text-muted uppercase tracking-[0.15em] ml-1 flex items-center gap-2">
                                 <CreditCard size={12} className="text-primary" /> {t('wallet_disbursement_qty')}
                             </label>
                             <div className="relative group/val">
@@ -252,24 +252,24 @@ const MainWallet = () => {
                                     placeholder={t('wallet_qty_placeholder')}
                                     className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl pl-4 pr-16 py-3.5 text-xs font-black focus:outline-none focus:border-primary/40 transition-all shadow-inner [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                                 />
-                                <div className="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] font-black text-text-muted uppercase tracking-widest bg-panel-hover px-2 py-1 rounded-lg">
+                                <div className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-black text-text-muted uppercase tracking-widest bg-panel-hover px-2 py-1 rounded-lg">
                                     {selectedCoin}
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="pt-4 flex flex-col sm:flex-row gap-3">
+                    <div className="flex flex-col sm:flex-row gap-3">
                         <button 
                             onClick={handleWithdraw}
-                            className="flex-[2] px-6 py-3.5 bg-primary text-white rounded-xl text-[10px] font-black shadow-lg shadow-primary/20 hover:opacity-90 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 uppercase tracking-widest group"
+                            className="flex-[2] px-6 py-3.5 bg-primary text-white rounded-xl text-xs font-black shadow-lg shadow-primary/20 hover:opacity-90 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 uppercase tracking-widest group"
                         >
                             <RefreshCcw size={14} className="group-hover:rotate-180 transition-transform duration-500" /> 
                             {t('wallet_authorize_withdrawal')}
                         </button>
                         <button 
                             onClick={handleReset}
-                            className="flex-1 px-6 py-3.5 bg-inputBg border border-border-custom text-text-secondary rounded-xl text-[10px] font-black hover:bg-panel-hover transition-all uppercase tracking-widest flex items-center justify-center gap-2"
+                            className="flex-1 px-6 py-3.5 bg-inputBg border border-border-custom text-text-secondary rounded-xl text-xs font-black hover:bg-panel-hover transition-all uppercase tracking-widest flex items-center justify-center gap-2"
                         >
                             <Eraser size={14} /> {t('wallet_clear_button')}
                         </button>
@@ -277,7 +277,7 @@ const MainWallet = () => {
 
                     <div className="bg-inputBg/30 border border-border-custom rounded-xl p-4 flex items-start gap-3">
                         <HelpCircle size={16} className="text-primary flex-shrink-0 mt-0.5 opacity-60" />
-                        <div className="text-[9px] text-text-muted leading-relaxed font-medium">
+                        <div className="text-xs text-text-muted leading-relaxed font-medium">
                             <span className="font-bold text-text-secondary block mb-0.5 uppercase tracking-wider">
                               {t('wallet_safety_check')}:
                             </span>

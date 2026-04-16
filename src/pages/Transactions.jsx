@@ -68,7 +68,7 @@ const Transactions = () => {
               <button 
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-3 py-1 text-[10px] font-bold rounded-lg transition-all ${
+                className={`px-3 py-1 text-xs font-bold rounded-lg transition-all ${
                   activeTab === tab 
                     ? 'bg-panel shadow-sm text-primary border border-border-custom' 
                     : 'text-text-muted hover:text-text-main'
@@ -84,13 +84,13 @@ const Transactions = () => {
           <table className="w-full text-left">
             <thead>
               <tr className="bg-inputBg/30">
-                <th className="py-3 px-6 text-[10px] font-bold text-text-muted uppercase tracking-widest">Transaction ID</th>
-                <th className="py-3 px-6 text-[10px] font-bold text-text-muted uppercase tracking-widest">Type</th>
-                <th className="py-3 px-6 text-[10px] font-bold text-text-muted uppercase tracking-widest text-right">Amount</th>
-                <th className="py-3 px-6 text-[10px] font-bold text-text-muted uppercase tracking-widest">Source / Dest</th>
-                <th className="py-3 px-6 text-[10px] font-bold text-text-muted uppercase tracking-widest">Time</th>
-                <th className="py-3 px-6 text-[10px] font-bold text-text-muted uppercase tracking-widest">Status</th>
-                <th className="py-3 px-6 text-[10px] font-bold text-text-muted uppercase tracking-widest text-right"></th>
+                <th className="py-3 px-6 text-xs font-bold text-text-muted uppercase tracking-widest">Transaction ID</th>
+                <th className="py-3 px-6 text-xs font-bold text-text-muted uppercase tracking-widest">Type</th>
+                <th className="py-3 px-6 text-xs font-bold text-text-muted uppercase tracking-widest text-right">Amount</th>
+                <th className="py-3 px-6 text-xs font-bold text-text-muted uppercase tracking-widest">Source / Dest</th>
+                <th className="py-3 px-6 text-xs font-bold text-text-muted uppercase tracking-widest">Time</th>
+                <th className="py-3 px-6 text-xs font-bold text-text-muted uppercase tracking-widest">Status</th>
+                <th className="py-3 px-6 text-xs font-bold text-text-muted uppercase tracking-widest text-right"></th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border-custom">
@@ -100,7 +100,7 @@ const Transactions = () => {
                   return (
                     <tr key={tx.id} className="hover:bg-panel-hover transition-colors group">
                       <td className="py-3.5 px-6">
-                         <span className="text-[11px] font-bold font-mono text-primary bg-primary/5 px-2 py-1 rounded border border-primary/10 group-hover:bg-primary group-hover:text-white transition-all cursor-pointer">
+                         <span className="text-xs font-bold font-mono text-primary bg-primary/5 px-2 py-1 rounded border border-primary/10 group-hover:bg-primary group-hover:text-white transition-all cursor-pointer">
                           {tx.id}
                          </span>
                       </td>
@@ -109,22 +109,22 @@ const Transactions = () => {
                           <div className={`p-1.5 bg-${typeStyle.color}-500/10 text-${typeStyle.color}-500 rounded-lg border border-${typeStyle.color}-500/10`}>
                             {typeStyle.icon}
                           </div>
-                          <span className="text-[11px] font-bold text-text-secondary">{typeStyle.text}</span>
+                          <span className="text-xs font-bold text-text-secondary">{typeStyle.text}</span>
                         </div>
                       </td>
                       <td className="py-3.5 px-6 text-right">
                         <div className="text-xs font-bold text-text-main">{tx.amount}</div>
-                        <div className="text-[10px] font-medium text-text-muted">{tx.value}</div>
+                        <div className="text-xs font-medium text-text-muted">{tx.value}</div>
                       </td>
                       <td className="py-3.5 px-6">
-                        <div className="text-[10px] font-semibold text-text-muted leading-tight">From: <span className="text-text-secondary truncate max-w-[100px] inline-block align-bottom">{tx.from}</span></div>
-                        <div className="text-[10px] font-semibold text-text-muted leading-tight">To: <span className="text-text-secondary truncate max-w-[100px] inline-block align-bottom">{tx.to}</span></div>
+                        <div className="text-xs font-semibold text-text-muted leading-tight">From: <span className="text-text-secondary truncate max-w-[100px] inline-block align-bottom">{tx.from}</span></div>
+                        <div className="text-xs font-semibold text-text-muted leading-tight">To: <span className="text-text-secondary truncate max-w-[100px] inline-block align-bottom">{tx.to}</span></div>
                       </td>
-                      <td className="py-3.5 px-6 text-[11px] font-medium text-text-muted">{tx.time}</td>
+                      <td className="py-3.5 px-6 text-xs font-medium text-text-muted">{tx.time}</td>
                       <td className="py-3.5 px-6">
                          <div className="flex items-center gap-1.5">
                              <div className={`w-1.5 h-1.5 rounded-full ${tx.status === 'Completed' ? 'bg-emerald-500' : tx.status === 'Failed' ? 'bg-rose-500' : 'bg-amber-500 animate-pulse'}`}></div>
-                             <span className={`text-[11px] font-bold ${tx.status === 'Completed' ? 'text-emerald-500' : tx.status === 'Failed' ? 'text-rose-500' : 'text-amber-500'}`}>
+                             <span className={`text-xs font-bold ${tx.status === 'Completed' ? 'text-emerald-500' : tx.status === 'Failed' ? 'text-rose-500' : 'text-amber-500'}`}>
                               {tx.status}
                              </span>
                          </div>

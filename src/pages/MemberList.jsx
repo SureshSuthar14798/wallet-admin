@@ -31,12 +31,12 @@ const MemberList = () => {
   ];
 
   return (
-    <div className="animate-enter space-y-6">
+    <div className="animate-enter space-y-4 lg:space-y-6">
       {/* Header Section */}
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold text-text-main tracking-tight">{t('member_list_title')}</h2>
-        <button className="px-3 py-2 sm:px-5 sm:py-2.5 bg-primary/20 text-primary border border-primary rounded-xl text-[10px] sm:text-xs font-bold hover:bg-primary hover:text-white transition-all flex items-center gap-2 shrink-0">
-          <Download size={14} /> <span className="hidden xs:inline">{t('btn_download_excel')}</span><span className="xs:hidden">Excel</span>
+        <button className="px-3 py-2 sm:px-5 sm:py-2.5 bg-primary/20 text-primary border border-primary rounded-xl text-xs sm:text-xs font-bold hover:bg-primary hover:text-white transition-all flex items-center gap-2 shrink-0">
+          <Download size={14} /> <span className="hidden xs:inline">{t('btn_download_excel')}</span><span className="xs:hidden">{t('btn_download_excel')}</span>
         </button>
       </div>
 
@@ -44,7 +44,7 @@ const MemberList = () => {
       <div className="bg-panel border border-border-custom rounded-2xl p-4 sm:p-6 shadow-sm">
         <div className="grid grid-cols-1 md:flex md:flex-wrap items-end gap-4">
           <div className="space-y-2">
-            <label className="text-[10px] font-black text-text-muted uppercase tracking-widest ml-1">{t('filter_reg_date')}</label>
+            <label className="text-xs font-black text-text-muted uppercase tracking-widest ml-1">{t('filter_reg_date')}</label>
             <div className="flex items-center gap-2">
               <input type="date" className="flex-1 bg-inputBg border border-border-custom text-text-main rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all font-medium" />
               <span className="text-text-muted font-bold">~</span>
@@ -54,7 +54,7 @@ const MemberList = () => {
           
           <div className="grid grid-cols-2 lg:flex gap-3 flex-1 lg:flex-none">
             <div className="space-y-2">
-              <label className="text-[10px] font-black text-text-muted uppercase tracking-widest ml-1">{t('common_status')}</label>
+              <label className="text-xs font-black text-text-muted uppercase tracking-widest ml-1">{t('common_status')}</label>
               <select className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-4 py-2 text-xs font-bold focus:outline-none min-w-[120px] cursor-pointer">
                 <option>{t('filter_member_status')}</option>
                 <option>{t('common_active')}</option>
@@ -63,8 +63,8 @@ const MemberList = () => {
             </div>
 
             <div className="space-y-2">
-                <label className="text-[10px] font-black text-text-muted uppercase tracking-widest ml-1">{t('filter_withdrawal')}</label>
-                <select className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-4 py-2 text-xs font-bold focus:outline-none min-w-[160px] cursor-pointer">
+                <label className="text-xs font-black text-text-muted uppercase tracking-widest ml-1">{t('filter_withdrawal')}</label>
+                <select className="w-full bg-inputBg border border-border-custom text-text-main rounded-xl px-4 py-2 text-xs font-bold focus:outline-none min-w-[120px] cursor-pointer">
                     <option>{t('common_status')}: {t('common_total')}</option>
                     <option>{t('label_possible')}</option>
                     <option>{t('label_impossible')}</option>
@@ -73,7 +73,7 @@ const MemberList = () => {
           </div>
 
           <div className="flex-1 space-y-2">
-            <label className="text-[10px] font-black text-text-muted uppercase tracking-widest ml-1">{t('filter_keyword')}</label>
+            <label className="text-xs font-black text-text-muted uppercase tracking-widest ml-1">{t('filter_keyword')}</label>
             <div className="flex gap-2">
               <select className="bg-inputBg border border-border-custom text-text-main rounded-xl px-3 py-2 text-xs font-bold focus:outline-none min-w-[100px] cursor-pointer">
                 <option>{t('common_id')}</option>
@@ -103,7 +103,7 @@ const MemberList = () => {
 
       {/* Stats */}
       <div className="flex justify-end px-2">
-        <span className="text-[10px] font-black text-text-muted uppercase tracking-widest leading-none">
+        <span className="text-xs font-black text-text-muted uppercase tracking-widest leading-none">
             {t('common_total')} : {mockMembers.length} {t('common_list')} (1/1) {t('common_page')}
         </span>
       </div>
@@ -113,23 +113,23 @@ const MemberList = () => {
         <table className="w-full text-left min-w-[2000px]">
           <thead>
             <tr className="bg-inputBg/50 border-b border-border-custom">
-              <th className="py-4 px-4 text-[10px] font-bold text-text-muted uppercase tracking-wider text-center">No</th>
-              <th className="py-4 px-4 text-[10px] font-bold text-text-muted uppercase tracking-wider">PK</th>
-              <th className="py-4 px-4 text-[10px] font-bold text-text-muted uppercase tracking-wider whitespace-nowrap">{t('col_login_type')}</th>
-              <th className="py-4 px-4 text-[10px] font-bold text-text-muted uppercase tracking-wider whitespace-nowrap">{t('col_account_id')}</th>
-              <th className="py-4 px-4 text-[10px] font-bold text-text-muted uppercase tracking-wider whitespace-nowrap">{t('common_mobile')}</th>
-              <th className="py-4 px-4 text-[10px] font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('col_wallet_usdt')}</th>
-              <th className="py-4 px-4 text-[10px] font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('col_wallet_tron')}</th>
-              <th className="py-4 px-4 text-[10px] font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('col_wallet_xrp')}</th>
-              <th className="py-4 px-4 text-[10px] font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('col_wallet_eth')}</th>
-              <th className="py-4 px-4 text-[10px] font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('col_wallet_btc')}</th>
-              <th className="py-4 px-4 text-[10px] font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('col_wallet_aiw')}</th>
-              <th className="py-4 px-4 text-[10px] font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('col_view_holdings')}</th>
-              <th className="py-4 px-4 text-[10px] font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('col_withdraw_status')}</th>
-              <th className="py-4 px-4 text-[10px] font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('col_membership_status')}</th>
-              <th className="py-4 px-4 text-[10px] font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('col_user_rating')}</th>
-              <th className="py-4 px-4 text-[10px] font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('common_date')}</th>
-              <th className="py-4 px-4 text-[10px] font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('col_correction')}</th>
+              <th className="py-4 px-4 text-xs font-bold text-text-muted uppercase tracking-wider text-center">No</th>
+              <th className="py-4 px-4 text-xs font-bold text-text-muted uppercase tracking-wider">PK</th>
+              <th className="py-4 px-4 text-xs font-bold text-text-muted uppercase tracking-wider whitespace-nowrap">{t('col_login_type')}</th>
+              <th className="py-4 px-4 text-xs font-bold text-text-muted uppercase tracking-wider whitespace-nowrap">{t('col_account_id')}</th>
+              <th className="py-4 px-4 text-xs font-bold text-text-muted uppercase tracking-wider whitespace-nowrap">{t('common_mobile')}</th>
+              <th className="py-4 px-4 text-xs font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('col_wallet_usdt')}</th>
+              <th className="py-4 px-4 text-xs font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('col_wallet_tron')}</th>
+              <th className="py-4 px-4 text-xs font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('col_wallet_xrp')}</th>
+              <th className="py-4 px-4 text-xs font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('col_wallet_eth')}</th>
+              <th className="py-4 px-4 text-xs font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('col_wallet_btc')}</th>
+              <th className="py-4 px-4 text-xs font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('col_wallet_aiw')}</th>
+              <th className="py-4 px-4 text-xs font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('col_view_holdings')}</th>
+              <th className="py-4 px-4 text-xs font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('col_withdraw_status')}</th>
+              <th className="py-4 px-4 text-xs font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('col_membership_status')}</th>
+              <th className="py-4 px-4 text-xs font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('col_user_rating')}</th>
+              <th className="py-4 px-4 text-xs font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('common_date')}</th>
+              <th className="py-4 px-4 text-xs font-bold text-text-muted uppercase tracking-wider text-center whitespace-nowrap">{t('col_correction')}</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-border-custom">
@@ -137,7 +137,7 @@ const MemberList = () => {
               <tr key={member.pk} className="hover:bg-panel-hover transition-colors">
                 <td className="py-4 px-4 text-xs font-bold text-text-muted text-center">{member.no}</td>
                 <td className="py-4 px-4 text-xs font-bold text-text-main">{member.pk}</td>
-                <td className="py-4 px-4 text-[11px] font-bold text-text-secondary">{member.loginType}</td>
+                <td className="py-4 px-4 text-xs font-bold text-text-secondary">{member.loginType}</td>
                 <td className="py-4 px-4 text-xs font-medium text-text-main underline decoration-text-muted/30 underline-offset-8">{member.id}</td>
                 <td className="py-4 px-4 text-xs text-text-muted text-center italic">{member.mobile}</td>
                 <td className="py-4 px-4 text-xs text-text-muted text-center italic">{member.usdt}</td>
@@ -153,7 +153,7 @@ const MemberList = () => {
                 </td>
                 <td className="py-4 px-4 text-xs font-bold text-text-main text-center">{member.withdrawalStatus === 'Possible' ? t('label_possible') : t('label_impossible')}</td>
                 <td className="py-4 px-4 text-center">
-                  <span className={`px-2.5 py-1 text-[10px] uppercase tracking-wider font-bold rounded-lg ${member.status === 'Active' ? 'bg-success text-white' : 'bg-text-muted text-white'}`}>
+                  <span className={`px-2.5 py-1 text-xs uppercase tracking-wider font-bold rounded-lg ${member.status === 'Active' ? 'bg-success text-white' : 'bg-text-muted text-white'}`}>
                     {member.status === 'Active' ? t('common_active') : t('common_inactive')}
                   </span>
                 </td>
@@ -174,9 +174,9 @@ const MemberList = () => {
 
         {/* Pagination */}
         <div className="p-6 border-t border-border-custom bg-inputBg/10 flex justify-center items-center gap-3">
-          <button className="px-4 py-1.5 border border-border-custom rounded-full text-[11px] font-bold text-primary hover:bg-primary/10 transition-all">{t('common_previous')}</button>
+          <button className="px-4 py-1.5 border border-border-custom rounded-full text-xs font-bold text-primary hover:bg-primary/10 transition-all">{t('common_previous')}</button>
           <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-xs font-black text-white shadow-lg shadow-primary/20">1</div>
-          <button className="px-4 py-1.5 border border-border-custom rounded-full text-[11px] font-bold text-primary hover:bg-primary/10 transition-all">{t('common_next')}</button>
+          <button className="px-4 py-1.5 border border-border-custom rounded-full text-xs font-bold text-primary hover:bg-primary/10 transition-all">{t('common_next')}</button>
         </div>
       </div>
     </div>

@@ -31,7 +31,7 @@ const CoinManagement = () => {
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center font-bold text-primary border border-primary/20">
                 {coin.symbol[0]}
               </div>
-              <span className="text-[10px] font-black px-2 py-1 bg-emerald-500/10 text-emerald-500 rounded-lg border border-emerald-500/20 uppercase tracking-widest leading-none">
+              <span className="text-xs font-black px-2 py-1 bg-emerald-500/10 text-emerald-500 rounded-lg border border-emerald-500/20 uppercase tracking-widest leading-none">
                 {t('status_listed')}
               </span>
             </div>

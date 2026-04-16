@@ -47,12 +47,12 @@ const Users = () => {
           <table className="w-full text-left">
             <thead>
               <tr className="bg-inputBg/30">
-                <th className="py-3 px-6 text-[10px] font-bold text-text-muted uppercase tracking-widest text-center">No</th>
-                <th className="py-3 px-6 text-[10px] font-bold text-text-muted uppercase tracking-widest">User Profile</th>
-                <th className="py-3 px-6 text-[10px] font-bold text-text-muted uppercase tracking-widest">Account Status</th>
-                <th className="py-3 px-6 text-[10px] font-bold text-text-muted uppercase tracking-widest">Total Assets</th>
-                <th className="py-3 px-6 text-[10px] font-bold text-text-muted uppercase tracking-widest">Joined Date</th>
-                <th className="py-3 px-6 text-[10px] font-bold text-text-muted uppercase tracking-widest text-right">Action</th>
+                <th className="py-3 px-6 text-xs font-bold text-text-muted uppercase tracking-widest text-center">No</th>
+                <th className="py-3 px-6 text-xs font-bold text-text-muted uppercase tracking-widest">User Profile</th>
+                <th className="py-3 px-6 text-xs font-bold text-text-muted uppercase tracking-widest">Account Status</th>
+                <th className="py-3 px-6 text-xs font-bold text-text-muted uppercase tracking-widest">Total Assets</th>
+                <th className="py-3 px-6 text-xs font-bold text-text-muted uppercase tracking-widest">Joined Date</th>
+                <th className="py-3 px-6 text-xs font-bold text-text-muted uppercase tracking-widest text-right">Action</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border-custom">
@@ -66,14 +66,14 @@ const Users = () => {
                         </div>
                         <div>
                             <div className="text-xs font-bold text-text-main leading-tight">{user.name}</div>
-                            <div className="text-[10px] font-medium text-text-muted">{user.email}</div>
+                            <div className="text-xs font-medium text-text-muted">{user.email}</div>
                         </div>
                     </div>
                   </td>
                   <td className="py-4 px-6">
                      <div className="flex items-center gap-2">
                          {user.status === 'Active' ? <UserCheck size={14} className="text-emerald-500"/> : user.status === 'Suspended' ? <ShieldAlert size={14} className="text-rose-500"/> : <Clock size={14} className="text-amber-500"/>}
-                         <span className={`text-[11px] font-bold ${
+                         <span className={`text-xs font-bold ${
                              user.status === 'Active' ? 'text-emerald-500' : 
                              user.status === 'Suspended' ? 'text-rose-500' :
                              'text-amber-500'
@@ -83,7 +83,7 @@ const Users = () => {
                      </div>
                   </td>
                   <td className="py-4 px-6 text-xs font-bold text-text-main uppercase tracking-tight">{user.balance}</td>
-                  <td className="py-4 px-6 text-[11px] font-medium text-text-muted">{user.date}</td>
+                  <td className="py-4 px-6 text-xs font-medium text-text-muted">{user.date}</td>
                   <td className="py-4 px-6 text-right">
                     <button className="p-2 text-text-muted hover:text-text-main transition-colors">
                         <MoreVertical size={16} />

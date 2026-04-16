@@ -44,14 +44,14 @@ const Login = () => {
                       <Wallet size={32} className="text-white" />
                   </div>
                   <h1 className="text-3xl font-black text-text-main tracking-tighter mb-2">{t('login_title')}</h1>
-                  <div className="flex items-center gap-2 text-[10px] font-black text-text-muted uppercase tracking-[0.2em] bg-inputBg px-3 py-1 rounded-full border border-border-custom">
+                  <div className="flex items-center gap-2 text-xs font-black text-text-muted uppercase tracking-[0.2em] bg-inputBg px-3 py-1 rounded-full border border-border-custom">
                       <Shield size={12} className="text-primary" /> {t('login_subtitle')}
                   </div>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
-                      <label className="text-[10px] font-black text-text-muted uppercase tracking-widest ml-1">{t('common_id')}</label>
+                      <label className="text-xs font-black text-text-muted uppercase tracking-widest ml-1">{t('common_id')}</label>
                       <div className="relative group/input">
                           <User className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted transition-colors group-focus-within/input:text-primary" size={18} />
                           <input 
@@ -66,7 +66,7 @@ const Login = () => {
                   </div>
 
                   <div className="space-y-2">
-                      <label className="text-[10px] font-black text-text-muted uppercase tracking-widest ml-1">{t('admin_password_label')}</label>
+                      <label className="text-xs font-black text-text-muted uppercase tracking-widest ml-1">{t('admin_password_label')}</label>
                       <div className="relative group/input">
                           <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted transition-colors group-focus-within/input:text-primary" size={18} />
                           <input 
@@ -96,7 +96,7 @@ const Login = () => {
               </form>
 
               <div className="mt-5 pt-5 border-t border-border-custom flex flex-col items-center gap-4">
-                  <p className="text-[10px] font-bold text-text-muted text-center uppercase tracking-widest leading-relaxed">
+                  <p className="text-xs font-bold text-text-muted text-center uppercase tracking-widest leading-relaxed">
                       {t('login_restricted')}<br/>
                       <span className="opacity-50">{t('login_personnel_only')}</span>
                   </p>

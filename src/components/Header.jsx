@@ -69,13 +69,13 @@ const Header = ({ onMenuClick }) => {
          <div className="flex items-center gap-1 p-1 bg-inputBg rounded-xl border border-border-custom px-1.5 h-10 shadow-inner">
             <button 
                 onClick={() => setLang('ko')}
-                className={`px-2 py-1 rounded-lg text-[10px] font-black transition-all ${lang === 'ko' ? 'bg-panel-solid shadow-sm text-primary border border-border-custom scale-105' : 'text-text-muted hover:text-text-main'}`}
+                className={`px-2 py-1 rounded-lg text-xs font-black transition-all ${lang === 'ko' ? 'bg-panel-solid shadow-sm text-primary border border-border-custom scale-105' : 'text-text-muted hover:text-text-main'}`}
             >
                 KO
             </button>
             <button 
                 onClick={() => setLang('en')}
-                className={`px-2 py-1 rounded-lg text-[10px] font-black transition-all ${lang === 'en' ? 'bg-panel-solid shadow-sm text-primary border border-border-custom scale-105' : 'text-text-muted hover:text-text-main'}`}
+                className={`px-2 py-1 rounded-lg text-xs font-black transition-all ${lang === 'en' ? 'bg-panel-solid shadow-sm text-primary border border-border-custom scale-105' : 'text-text-muted hover:text-text-main'}`}
             >
                 EN
             </button>
@@ -109,7 +109,7 @@ const Header = ({ onMenuClick }) => {
                  <div className="absolute right-0 mt-2 w-72 bg-panel border border-border-custom rounded-2xl shadow-xl z-50 overflow-hidden animate-scale-in transform origin-top-right">
                      <div className="px-5 py-4 border-b border-border-custom flex justify-between items-center bg-inputBg/30">
                          <h3 className="text-sm font-bold text-text-main tracking-tight">{t('nav_notifications')}</h3>
-                         <span className="text-[10px] font-black text-primary uppercase tracking-widest cursor-pointer hover:opacity-80 transition-opacity">{t('notif_mark_all_read')}</span>
+                         <span className="text-xs font-black text-primary uppercase tracking-widest cursor-pointer hover:opacity-80 transition-opacity">{t('notif_mark_all_read')}</span>
                      </div>
                      <div className="max-h-80 overflow-y-auto scrollbar-hide flex flex-col">
                         {notifications.map(n => (
@@ -117,7 +117,7 @@ const Header = ({ onMenuClick }) => {
                                 <div className={`w-2 h-2 mt-1.5 rounded-full flex-shrink-0 transition-colors ${n.unread ? 'bg-primary shadow-[0_0_8px_rgba(139,92,246,0.5)]' : 'bg-text-muted/30 group-hover:bg-text-muted/50'}`}></div>
                                 <div className="space-y-1">
                                     <div className={`text-xs leading-tight ${n.unread ? 'font-bold text-text-main' : 'font-medium text-text-secondary'}`}>{n.title}</div>
-                                    <div className="text-[10px] font-black text-text-muted tracking-widest uppercase">{n.time}</div>
+                                    <div className="text-xs font-black text-text-muted tracking-widest uppercase">{n.time}</div>
                                 </div>
                             </div>
                         ))}
@@ -131,7 +131,7 @@ const Header = ({ onMenuClick }) => {
          <div className="flex items-center gap-3 lg:pl-2 group cursor-pointer relative" ref={profileRef} onClick={() => setShowProfileMenu(!showProfileMenu)}>
             <div className="text-right hidden sm:block">
               <div className="text-xs font-bold text-text-main leading-tight group-hover:text-primary transition-colors">Admin_Alpha</div>
-              <div className="text-[10px] font-black text-success uppercase tracking-widest flex items-center justify-end gap-1">
+              <div className="text-xs font-black text-success uppercase tracking-widest flex items-center justify-end gap-1">
                 <div className="w-1 h-1 rounded-full bg-success"></div> {lang === 'ko' ? '온라인' : 'Online'}
               </div>
             </div>

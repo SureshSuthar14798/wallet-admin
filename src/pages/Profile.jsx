@@ -22,7 +22,7 @@ const Profile = () => {
             
             {/* Admin ID - Read Only */}
             <div className="space-y-2">
-              <label className="text-[10px] font-black text-text-muted uppercase tracking-[2px] flex items-center gap-2">
+              <label className="text-xs font-black text-text-muted uppercase tracking-[2px] flex items-center gap-2">
                 <Mail size={12} className="text-primary" /> {t('admin_id_label')}
               </label>
               <input 
@@ -35,7 +35,7 @@ const Profile = () => {
 
             {/* Admin Name */}
             <div className="space-y-2">
-              <label className="text-[10px] font-black text-text-muted uppercase tracking-[2px] flex items-center gap-2">
+              <label className="text-xs font-black text-text-muted uppercase tracking-[2px] flex items-center gap-2">
                 <User size={12} className="text-primary" /> {t('admin_name_label')}
               </label>
               <input 
@@ -47,7 +47,7 @@ const Profile = () => {
 
             {/* Mobile Number */}
             <div className="space-y-2">
-              <label className="text-[10px] font-black text-text-muted uppercase tracking-[2px] flex items-center gap-2">
+              <label className="text-xs font-black text-text-muted uppercase tracking-[2px] flex items-center gap-2">
                 <Smartphone size={12} className="text-primary" /> {t('admin_mobile_label')}
               </label>
               <div className="flex gap-2">
@@ -66,7 +66,7 @@ const Profile = () => {
 
             {/* Manager's Department */}
             <div className="space-y-2">
-              <label className="text-[10px] font-black text-text-muted uppercase tracking-[2px] flex items-center gap-2">
+              <label className="text-xs font-black text-text-muted uppercase tracking-[2px] flex items-center gap-2">
                 <Building size={12} className="text-primary" /> {t('profile_dept_label')}
               </label>
               <input 
@@ -79,7 +79,7 @@ const Profile = () => {
 
             {/* Admin Password */}
             <div className="space-y-2">
-              <label className="text-[10px] font-black text-text-muted uppercase tracking-[2px] flex items-center gap-2">
+              <label className="text-xs font-black text-text-muted uppercase tracking-[2px] flex items-center gap-2">
                 <Key size={12} className="text-primary" /> {t('admin_password_label')}
               </label>
               <input 

@@ -28,12 +28,12 @@ const Dashboard = () => {
               <div className="p-2.5 bg-primary/10 rounded-xl text-primary">
                 {item.icon}
               </div>
-              <span className={`text-[11px] font-bold ${item.trend.startsWith('+') ? 'text-success' : 'text-danger'} bg-inputBg px-2 py-1 rounded-lg border border-border-custom`}>
+              <span className={`text-xs font-bold ${item.trend.startsWith('+') ? 'text-success' : 'text-danger'} bg-inputBg px-2 py-1 rounded-lg border border-border-custom`}>
                 {item.trend}
               </span>
             </div>
             <div>
-              <p className="text-[11px] font-bold text-text-muted uppercase tracking-widest mb-1">{item.label}</p>
+              <p className="text-xs font-bold text-text-muted uppercase tracking-widest mb-1">{item.label}</p>
               <h3 className="text-2xl font-bold text-text-main tracking-tight">{item.value}</h3>
             </div>
           </div>
@@ -50,7 +50,7 @@ const Dashboard = () => {
             </div>
             <div className="flex bg-inputBg p-1 rounded-xl border border-border-custom">
               {['1H', '1D', '1W', '1M'].map(t => (
-                <button key={t} className={`px-4 py-1.5 text-[11px] font-bold rounded-lg transition-all ${t === '1D' ? 'bg-primary text-white shadow-md' : 'text-text-muted hover:text-text-main'}`}>{t}</button>
+                <button key={t} className={`px-4 py-1.5 text-xs font-bold rounded-lg transition-all ${t === '1D' ? 'bg-primary text-white shadow-md' : 'text-text-muted hover:text-text-main'}`}>{t}</button>
               ))}
             </div>
           </div>
@@ -65,8 +65,8 @@ const Dashboard = () => {
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--border-color)" />
-                <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fontSize: 10, fontWeight: 600, fill: 'var(--text-muted)'}} dy={10} />
-                <YAxis axisLine={false} tickLine={false} tick={{fontSize: 10, fontWeight: 600, fill: 'var(--text-muted)'}} />
+                <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fontSize: 12, fontWeight: 600, fill: 'var(--text-muted)'}} dy={10} />
+                <YAxis axisLine={false} tickLine={false} tick={{fontSize: 12, fontWeight: 600, fill: 'var(--text-muted)'}} />
                 <Tooltip 
                   contentStyle={{ backgroundColor: 'var(--bg-panel)', borderRadius: '12px', border: '1px solid var(--border-color)', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', fontSize: '12px', fontWeight: 'bold', color: 'var(--text-primary)' }}
                   itemStyle={{ color: 'var(--color-primary)' }}
@@ -89,7 +89,7 @@ const Dashboard = () => {
             ].map((s, i) => (
               <div key={i} className="flex justify-between items-center p-3 bg-inputBg rounded-xl border border-border-custom">
                 <span className="text-xs font-bold text-text-secondary">{s.label}</span>
-                <span className={`text-[10px] font-black uppercase tracking-wider px-2 py-1 bg-${s.color === 'success' ? 'emerald' : s.color === 'primary' ? 'violet' : 'cyan'}-500/10 text-${s.color === 'success' ? 'emerald' : s.color === 'primary' ? 'violet' : 'cyan'}-500 rounded-lg`}>{s.status}</span>
+                <span className={`text-xs font-black uppercase tracking-wider px-2 py-1 bg-${s.color === 'success' ? 'emerald' : s.color === 'primary' ? 'violet' : 'cyan'}-500/10 text-${s.color === 'success' ? 'emerald' : s.color === 'primary' ? 'violet' : 'cyan'}-500 rounded-lg`}>{s.status}</span>
               </div>
             ))}
           </div>
@@ -109,10 +109,10 @@ const Dashboard = () => {
           <table className="w-full text-left">
             <thead>
               <tr className="bg-inputBg/50">
-                <th className="py-3 px-5 text-[10px] font-bold text-text-muted uppercase tracking-widest">Admin Event</th>
-                <th className="py-3 px-5 text-[10px] font-bold text-text-muted uppercase tracking-widest">Node ID</th>
-                <th className="py-3 px-5 text-[10px] font-bold text-text-muted uppercase tracking-widest">Execution Time</th>
-                <th className="py-3 px-5 text-[10px] font-bold text-text-muted uppercase tracking-widest">Integrity Hash</th>
+                <th className="py-3 px-5 text-xs font-bold text-text-muted uppercase tracking-widest">Admin Event</th>
+                <th className="py-3 px-5 text-xs font-bold text-text-muted uppercase tracking-widest">Node ID</th>
+                <th className="py-3 px-5 text-xs font-bold text-text-muted uppercase tracking-widest">Execution Time</th>
+                <th className="py-3 px-5 text-xs font-bold text-text-muted uppercase tracking-widest">Integrity Hash</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border-custom">
@@ -122,7 +122,7 @@ const Dashboard = () => {
                   <td className="py-3.5 px-5 text-xs font-mono text-primary font-bold tracking-tight">NODE-0{i}</td>
                   <td className="py-3.5 px-5 text-xs font-medium text-text-secondary">2 min ago</td>
                   <td className="py-3.5 px-5">
-                    <span className="text-[10px] font-mono text-text-muted bg-inputBg px-2 py-0.5 rounded border border-border-custom">0x7a...{i}f2</span>
+                    <span className="text-xs font-mono text-text-muted bg-inputBg px-2 py-0.5 rounded border border-border-custom">0x7a...{i}f2</span>
                   </td>
                 </tr>
               ))}

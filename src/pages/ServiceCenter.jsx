@@ -15,7 +15,7 @@ const ServiceCenter = () => {
         <div className="flex gap-2">
             <div className="flex -space-x-2">
                 {[1,2,3].map(i => (
-                    <div key={i} className="w-8 h-8 rounded-full border-2 border-panel bg-primary/20 flex items-center justify-center text-[10px] font-bold text-primary">OP</div>
+                    <div key={i} className="w-8 h-8 rounded-full border-2 border-panel bg-primary/20 flex items-center justify-center text-xs font-bold text-primary">OP</div>
                 ))}
             </div>
             <button className="ml-2 px-4 py-2 bg-panel border border-border-custom rounded-xl text-xs font-bold text-text-secondary hover:bg-panel-hover transition-all">Support Stats</button>
@@ -34,7 +34,7 @@ const ServiceCenter = () => {
                 {stat.icon}
               </div>
               <div>
-                <div className="text-[10px] font-black text-text-muted uppercase tracking-widest">{stat.label}</div>
+                <div className="text-xs font-black text-text-muted uppercase tracking-widest">{stat.label}</div>
                 <div className="text-2xl font-bold text-text-main">{stat.value}</div>
               </div>
             </div>

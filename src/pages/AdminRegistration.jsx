@@ -9,9 +9,9 @@ const AdminRegistration = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="animate-enter max-w-7xl mx-auto space-y-8">
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-text-main tracking-tight">{t('admin_reg_title')}</h2>
+    <div className="animate-enter max-w-7xl mx-auto space-y-6 lg:space-y-8">
+      <div className="mb-4 lg:mb-8 px-1">
+        <h2 className="text-2xl lg:text-3xl font-bold text-text-main tracking-tight">{t('admin_reg_title')}</h2>
       </div>
 
       <div className="bg-panel border border-border-custom rounded-2xl p-4 sm:p-8 shadow-sm">
@@ -19,7 +19,7 @@ const AdminRegistration = () => {
           
           {/* Row 1 */}
           <div className="space-y-3">
-            <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex items-center gap-2 mb-1">
+            <label className="text-xs font-black text-text-muted uppercase tracking-widest flex items-center gap-2 mb-1">
               <ChevronRight size={14} className="text-primary" /> {t('admin_id_label')}
             </label>
             <input 
@@ -30,7 +30,7 @@ const AdminRegistration = () => {
           </div>
 
           <div className="space-y-3">
-            <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex items-center gap-2 mb-1">
+            <label className="text-xs font-black text-text-muted uppercase tracking-widest flex items-center gap-2 mb-1">
               <ChevronRight size={14} className="text-primary" /> {t('admin_name_label')}
             </label>
             <input 
@@ -41,7 +41,7 @@ const AdminRegistration = () => {
           </div>
 
           <div className="space-y-3">
-            <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex items-center gap-2 mb-1">
+            <label className="text-xs font-black text-text-muted uppercase tracking-widest flex items-center gap-2 mb-1">
               <ChevronRight size={14} className="text-primary" /> {t('admin_mobile_label')}
             </label>
             <div className="flex flex-row gap-2">
@@ -61,7 +61,7 @@ const AdminRegistration = () => {
 
           {/* Row 2 */}
           <div className="space-y-3">
-            <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex items-center gap-2 mb-1">
+            <label className="text-xs font-black text-text-muted uppercase tracking-widest flex items-center gap-2 mb-1">
               <ChevronRight size={14} className="text-primary" /> {t('admin_part_label')}
             </label>
             <input 
@@ -72,7 +72,7 @@ const AdminRegistration = () => {
           </div>
 
           <div className="space-y-3">
-            <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex items-center gap-2 mb-1">
+            <label className="text-xs font-black text-text-muted uppercase tracking-widest flex items-center gap-2 mb-1">
               <ChevronRight size={14} className="text-primary" /> {t('admin_password_label')}
             </label>
             <div className="relative">
@@ -91,7 +91,7 @@ const AdminRegistration = () => {
           </div>
 
           <div className="space-y-3">
-            <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex items-center gap-2 mb-1">
+            <label className="text-xs font-black text-text-muted uppercase tracking-widest flex items-center gap-2 mb-1">
               <ChevronRight size={14} className="text-primary" /> {t('admin_status_label')}
             </label>
             <div className="flex items-center gap-6 h-[46px] bg-inputBg/50 border border-border-custom rounded-xl px-4">
@@ -100,21 +100,21 @@ const AdminRegistration = () => {
                   <div className="w-4 h-4 rounded-full border-2 border-border-custom peer-checked:border-primary peer-checked:bg-primary transition-all flex items-center justify-center">
                       <div className="w-1.5 h-1.5 rounded-full bg-white opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                   </div>
-                  <span className="text-[11px] font-bold text-text-secondary peer-checked:text-text-main uppercase tracking-wider transition-colors">{t('common_active')}</span>
+                  <span className="text-xs font-bold text-text-secondary peer-checked:text-text-main uppercase tracking-wider transition-colors">{t('common_active')}</span>
               </label>
               <label className="flex items-center gap-2 cursor-pointer group">
                   <input type="radio" name="admin-status" className="hidden peer" />
                   <div className="w-4 h-4 rounded-full border-2 border-border-custom peer-checked:border-primary peer-checked:bg-primary transition-all flex items-center justify-center">
                       <div className="w-1.5 h-1.5 rounded-full bg-white opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                   </div>
-                  <span className="text-[11px] font-bold text-text-secondary peer-checked:text-text-main uppercase tracking-wider transition-colors">{t('common_inactive')}</span>
+                  <span className="text-xs font-bold text-text-secondary peer-checked:text-text-main uppercase tracking-wider transition-colors">{t('common_inactive')}</span>
               </label>
             </div>
           </div>
 
           {/* Row 3 - Full Width */}
           <div className="space-y-3 lg:col-span-3">
-            <label className="text-[10px] font-black text-text-muted uppercase tracking-widest flex items-center gap-2 mb-1">
+            <label className="text-xs font-black text-text-muted uppercase tracking-widest flex items-center gap-2 mb-1">
               <ChevronRight size={14} className="text-primary" /> {t('admin_notes_label')}
             </label>
             <input 
@@ -126,13 +126,13 @@ const AdminRegistration = () => {
 
         </div>
 
-        <div className="mt-10 flex gap-3">
-          <button className="px-8 py-2.5 bg-primary text-white rounded-lg text-sm font-bold shadow-md shadow-primary/20 hover:opacity-90 transition-all flex items-center gap-2">
+        <div className="mt-10 lg:mt-12 flex flex-col sm:flex-row gap-3">
+          <button className="w-full sm:w-auto px-10 py-3.5 bg-primary text-white rounded-xl text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all flex items-center justify-center gap-2">
             <Save size={16} /> {t('common_save')}
           </button>
           <button 
             onClick={() => navigate('/admin-management')}
-            className="px-8 py-2.5 bg-panel border-2 border-border-custom text-text-main rounded-lg text-sm font-bold hover:bg-panel-hover transition-all"
+            className="w-full sm:w-auto px-10 py-3.5 bg-panel border border-border-custom text-text-secondary rounded-xl text-sm font-bold hover:bg-panel-hover transition-all flex items-center justify-center"
           >
             {t('common_list')}
           </button>

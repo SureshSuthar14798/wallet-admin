@@ -140,7 +140,7 @@ const Sidebar = ({ isOpen, onClose }) => {
                           onClick={() => { if(window.innerWidth < 1024) onClose(); }}
                           className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg transition-all font-bold text-[12px] uppercase tracking-widest ${
                             isActive 
-                              ? 'text-primary bg-primary/5' 
+                              ? 'text-primary' 
                               : 'text-text-muted hover:text-text-main hover:bg-panel-hover'
                           }`}
                         >
@@ -163,7 +163,7 @@ const Sidebar = ({ isOpen, onClose }) => {
               onClick={() => { if(window.innerWidth < 1024) onClose(); }}
               className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-bold text-[12px] uppercase tracking-widest ${
                 isActive 
-                  ? 'text-white bg-zinc-400 shadow-sm shadow-primary/5' 
+                  ? 'text-white bg-primary shadow-sm shadow-primary/5' 
                   : 'text-text-secondary hover:text-text-main hover:bg-panel-hover'
               }`}
             >

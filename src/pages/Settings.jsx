@@ -22,25 +22,25 @@ const Settings = () => {
           </div>
           <div className="p-5 space-y-5">
             <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-text-muted uppercase tracking-widest ml-0.5">Platform Broadcast Name</label>
+              <label className="text-xs font-bold text-text-muted uppercase tracking-widest ml-0.5">Platform Broadcast Name</label>
               <input type="text" defaultValue="Crypto Admin Global" className="w-full bg-inputBg border border-border-custom rounded-xl px-4 py-2 text-xs font-semibold text-text-main outline-none focus:ring-2 focus:ring-primary/20 transition-all" />
             </div>
             <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-text-muted uppercase tracking-widest ml-0.5">Support Endpoint (Email)</label>
+              <label className="text-xs font-bold text-text-muted uppercase tracking-widest ml-0.5">Support Endpoint (Email)</label>
               <input type="email" defaultValue="support@s-crypto.corp" className="w-full bg-inputBg border border-border-custom rounded-xl px-4 py-2 text-xs font-semibold text-text-main outline-none focus:ring-2 focus:ring-primary/20 transition-all" />
             </div>
             <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-text-muted uppercase tracking-widest ml-0.5">Node System Pulse</label>
+              <label className="text-xs font-bold text-text-muted uppercase tracking-widest ml-0.5">Node System Pulse</label>
               <div className="flex bg-inputBg p-1 rounded-xl gap-1 border border-border-custom">
                 <button 
                   onClick={() => setPulseMode('live')}
-                  className={`flex-1 py-2 text-[10px] font-bold rounded-lg transition-all ${pulseMode === 'live' ? 'bg-panel border border-border-custom shadow-sm text-primary' : 'text-text-muted hover:text-text-main'}`}
+                  className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all ${pulseMode === 'live' ? 'bg-panel border border-border-custom shadow-sm text-primary' : 'text-text-muted hover:text-text-main'}`}
                 >
                   Live Pulse
                 </button>
                 <button 
                   onClick={() => setPulseMode('maintenance')}
-                  className={`flex-1 py-2 text-[10px] font-bold rounded-lg transition-all ${pulseMode === 'maintenance' ? 'bg-panel border border-border-custom shadow-sm text-warning' : 'text-text-muted hover:text-text-main'}`}
+                  className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all ${pulseMode === 'maintenance' ? 'bg-panel border border-border-custom shadow-sm text-warning' : 'text-text-muted hover:text-text-main'}`}
                 >
                   Maintenance
                 </button>
@@ -60,30 +60,30 @@ const Settings = () => {
           </div>
           <div className="p-5 space-y-5">
             <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-text-muted uppercase tracking-widest ml-0.5">Admin Auth Protocol</label>
+              <label className="text-xs font-bold text-text-muted uppercase tracking-widest ml-0.5">Admin Auth Protocol</label>
               <div className="flex bg-inputBg p-1 rounded-xl gap-1 border border-border-custom">
                 <button 
                   onClick={() => setAuthProtocol('2fa')}
-                  className={`flex-1 py-2 text-[10px] font-bold rounded-lg transition-all ${authProtocol === '2fa' ? 'bg-panel border border-border-custom shadow-sm text-success' : 'text-text-muted hover:text-text-main'}`}
+                  className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all ${authProtocol === '2fa' ? 'bg-panel border border-border-custom shadow-sm text-success' : 'text-text-muted hover:text-text-main'}`}
                 >
                   2FA Enforced
                 </button>
                 <button 
                   onClick={() => setAuthProtocol('optional')}
-                  className={`flex-1 py-2 text-[10px] font-bold rounded-lg transition-all ${authProtocol === 'optional' ? 'bg-panel border border-border-custom shadow-sm text-text-muted' : 'text-text-muted hover:text-text-main'}`}
+                  className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all ${authProtocol === 'optional' ? 'bg-panel border border-border-custom shadow-sm text-text-muted' : 'text-text-muted hover:text-text-main'}`}
                 >
                   Optional
                 </button>
               </div>
             </div>
             <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-text-muted uppercase tracking-widest ml-0.5">Session Timeout (Mins)</label>
+              <label className="text-xs font-bold text-text-muted uppercase tracking-widest ml-0.5">Session Timeout (Mins)</label>
               <input type="number" defaultValue="30" className="w-full bg-inputBg border border-border-custom rounded-xl px-4 py-2 text-xs font-semibold text-text-main outline-none focus:ring-2 focus:ring-success/20 transition-all" />
             </div>
             <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-text-muted uppercase tracking-widest ml-0.5">Network Notification Hub</label>
+              <label className="text-xs font-bold text-text-muted uppercase tracking-widest ml-0.5">Network Notification Hub</label>
               <div className="flex items-center justify-between p-2 rounded-xl border border-border-custom bg-inputBg">
-                  <span className="text-[11px] font-bold text-text-secondary">Telegram Bot Notifications</span>
+                  <span className="text-xs font-bold text-text-secondary">Telegram Bot Notifications</span>
                   <div 
                     onClick={() => setTelegramNotifications(!telegramNotifications)}
                     className={`w-8 h-4 rounded-full relative cursor-pointer transition-colors duration-300 ${telegramNotifications ? 'bg-success' : 'bg-text-muted/30'}`}
@@ -116,8 +116,8 @@ const Settings = () => {
       </div>
 
       <div className="flex justify-center flex-col items-center gap-1.5 opacity-30">
-          <div className="text-[10px] font-bold text-text-muted uppercase tracking-[3px]">Crypto Admin Console v2.0.4-Stable</div>
-          <div className="text-[9px] font-bold text-text-muted uppercase tracking-[2px]">Secured by Cluster Alpha-Prime</div>
+          <div className="text-xs font-bold text-text-muted uppercase tracking-[3px]">Crypto Admin Console v2.0.4-Stable</div>
+          <div className="text-xs font-bold text-text-muted uppercase tracking-[2px]">Secured by Cluster Alpha-Prime</div>
       </div>
     </div>
   );

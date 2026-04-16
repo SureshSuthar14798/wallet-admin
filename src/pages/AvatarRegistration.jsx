@@ -9,12 +9,12 @@ const AvatarRegistration = () => {
   const fileInputRef = useRef(null);
 
   return (
-    <div className="animate-enter max-w-4xl mx-auto space-y-8">
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-text-main tracking-tight">{t('avatar_reg_title')}</h2>
+    <div className="animate-enter max-w-4xl mx-auto space-y-6 lg:space-y-8">
+      <div className="mb-4 lg:mb-8 px-1">
+        <h2 className="text-2xl lg:text-3xl font-bold text-text-main tracking-tight">{t('avatar_reg_title')}</h2>
       </div>
 
-      <div className="bg-panel border border-border-custom rounded-2xl p-8 shadow-sm">
+      <div className="bg-panel border border-border-custom rounded-2xl p-5 sm:p-8 shadow-sm">
         <div className="space-y-8">
           
           <div className="space-y-3">
@@ -78,13 +78,13 @@ const AvatarRegistration = () => {
 
         </div>
 
-        <div className="mt-10 flex gap-3">
-          <button className="px-8 py-2.5 bg-primary text-white rounded-lg text-sm font-bold shadow-md shadow-primary/20 hover:opacity-90 transition-all flex items-center gap-2">
+        <div className="mt-10 flex flex-col sm:flex-row gap-3">
+          <button className="w-full sm:w-auto px-10 py-3.5 bg-primary text-white rounded-xl text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all flex items-center justify-center gap-2">
             <Save size={16} /> {t('common_save')}
           </button>
           <button 
             onClick={() => navigate('/avatars')}
-            className="px-8 py-2.5 bg-panel border-2 border-border-custom text-text-main rounded-lg text-sm font-bold hover:bg-panel-hover transition-all"
+            className="w-full sm:w-auto px-10 py-3.5 bg-panel border border-border-custom text-text-secondary rounded-xl text-sm font-bold hover:bg-panel-hover transition-all flex items-center justify-center"
           >
             {t('common_list')}
           </button>
